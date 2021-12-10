@@ -14,32 +14,32 @@
            <router-view class="view"></router-view>
           </transition>
         </div>
-        <Footer/>
+        <!-- <Footer/> -->
       </div>
-      <Customizer/>
-      <TapTop/>
+      <!-- <Customizer/> -->
+      <!-- <TapTop/> -->
     </div>
   </div>
 </template>
 
 <script>
   import { mapState } from 'vuex';
-  import { layoutClasses } from '../constants/layout';
-  import Header from './header';
-  import Sidebar from './sidebar.vue';
-  import Footer from './footer';
-  import Customizer from './customizer';
-  import TapTop from './taptop';
+  // import { layoutClasses } from '../constants/layout';
+  // import Header from './header';
+  // import Sidebar from './sidebar.vue';
+  // import Footer from './footer';
+  // import Customizer from './customizer';
+  // import TapTop from './taptop';
 
   export default {
     name: 'mainpage',
     // props:['sidebar_toggle_var'],
     components:{
-      Header,
-      Sidebar,
-      Footer,
-      Customizer,
-      TapTop
+      // Header,
+      // Sidebar,
+      // Footer,
+      // Customizer,
+      // TapTop
     },
     data(){
       return{

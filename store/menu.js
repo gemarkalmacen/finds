@@ -1,4 +1,4 @@
-import Menu from '../../data/menu'
+import Menu from '../static/data/menu.json'
 
 const state = {
   data: Menu.data,
@@ -101,10 +101,10 @@ const actions = {
   }
 }
 
-export default {
-  namespaced: true,
-  state,
-  getters,
-  actions,
-  mutations
-}
+// export default {
+//   namespaced: true,
+//   state,
+//   getters,
+//   actions,
+//   mutations
+// }
