@@ -14,10 +14,10 @@
            <router-view class="view"></router-view>
           </transition>
         </div>
-        <!-- <Footer/> -->
+        <Footer/>
       </div>
-      <!-- <Customizer/> -->
-      <!-- <TapTop/> -->
+      <Customizer/>
+      <TapTop/>
     </div>
   </div>
 </template>

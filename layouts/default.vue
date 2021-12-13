@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Body />
-    
+    <!-- <Body /> -->
+    ASD
     <!-- <Nuxt /> -->
   </div>
 </template>

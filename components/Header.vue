@@ -422,7 +422,7 @@
 <script>
 var body = document.getElementsByTagName("body")[0];
 import { mapState } from "vuex";
-import Bookmark from "./bookmark";
+// import Bookmark from "./bookmark";
 export default {
   name: "Search",
   data() {
@@ -443,7 +443,7 @@ export default {
     };
   },
   components: {
-    Bookmark,
+    // Bookmark,
   },
   computed: {
     ...mapState({

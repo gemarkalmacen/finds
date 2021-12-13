@@ -21,7 +21,7 @@ export default {
     '~/assets/scss/app.scss',
     
     // sass from node_modules
-    // 'animate.css/animate.min.css',
+    'animate.css/animate.min.css',
     'bootstrap/dist/css/bootstrap.css',
     'bootstrap-vue/dist/bootstrap-vue.css',
     'vue-form-wizard/dist/vue-form-wizard.min.css',
