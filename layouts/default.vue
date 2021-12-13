@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <Body /> -->
-    ASD
-    <!-- <Nuxt /> -->
+    <Body />
+    <Nuxt />
   </div>
 </template>

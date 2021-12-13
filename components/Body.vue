@@ -24,7 +24,7 @@
 
 <script>
   import { mapState } from 'vuex';
-  // import { layoutClasses } from '../constants/layout';
+  import { layoutClasses } from '../constants/layout';
   // import Header from './header';
   // import Sidebar from './sidebar.vue';
   // import Footer from './footer';
