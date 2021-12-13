@@ -561,9 +561,9 @@ export default {
     };
   },
   mounted() {
-    this.layout.color.color = localStorage.getItem("color");
-    this.layout.color.primary_color = localStorage.getItem("primary_color");
-    this.layout.color.secondary_color = localStorage.getItem("secondary_color");
+    // this.layout.color.color = localStorage.getItem("color");
+    // this.layout.color.primary_color = localStorage.getItem("primary_color");
+    // this.layout.color.secondary_color = localStorage.getItem("secondary_color");
   },
   computed: {
     ...mapState({

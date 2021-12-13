@@ -29,7 +29,7 @@
   // import Sidebar from './sidebar.vue';
   // import Footer from './footer';
   // import Customizer from './customizer';
-  // import TapTop from './taptop';
+  import TapTop from './Taptop';
 
   export default {
     name: 'mainpage',
@@ -39,7 +39,7 @@
       // Sidebar,
       // Footer,
       // Customizer,
-      // TapTop
+      TapTop
     },
     data(){
       return{
