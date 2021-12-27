@@ -46,10 +46,44 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/auth-next',
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/login',
+      home: '/dashboard'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: process.env.API_URL+'api/auth/login',
+            method: 'post',
+          },
+          logout: { 
+            url: process.env.API_URL+'api/auth/logout',
+            method: 'post' 
+          },
+          user: { 
+            url: process.env.API_URL+'api/auth/user',
+            method: 'get' ,
+            propertyName: false
+          },
+        },
+        tokenRequired: false,
+        tokenType: false
+      }
+    },
+    cookie: {
+      prefix: 'auth.'
+    }
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

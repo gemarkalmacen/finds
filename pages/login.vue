@@ -58,7 +58,7 @@
                       >Remember password</label
                     >
                   </div>
-                  <button class="btn btn-primary btn-block" type="submit">
+                  <button class="btn btn-primary btn-block" type="submit" @click.prevent="login">
                     Sign in
                   </button>
                 </div>
@@ -100,5 +100,15 @@
 <script>
 export default {
   layout: 'empty',
+  methods: {
+    login(){
+      this.$auth.loginWith('local', {
+        data: {
+          email: 'admin@gmail.com',
+          passowrd: 'password'
+        }
+      })
+    }
+  }
 }
 </script>
