@@ -89,7 +89,11 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.API_URL,
+    credentials: true, // this says that in the request the httponly cookie should be sent
+    proxy: false,
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
