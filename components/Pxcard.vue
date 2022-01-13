@@ -67,7 +67,7 @@
 
 <script>
 export default {
-  name: "px-card",
+  // name: "px-card",
   props: {
     title: String,
     actions: {

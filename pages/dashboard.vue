@@ -1,11 +1,11 @@
 <template>
   <div>
-    <Breadcrumbs main="Dashboard" title="default" />
+    <BreadCrumbs main="Dashboard" title="default" />
     <!-- Container-fluid starts-->
     <div class="container-fluid">
       <div class="row second-chart-list third-news-update">
         <div class="col-xl-4 col-lg-12 xl-50 morning-sec box-col-12">
-          <px-card class="profile-greeting">
+          <Pxcard class="profile-greeting">
             <div slot="with-padding">
               <div class="media">
                 <div class="media-body">
@@ -28,12 +28,12 @@
                   </div>
                 </div>
               </div>
-              <div class="cartoon"><img class="img-fluid" src="assets/images/dashboard/cartoon.png" alt=""></div>
+              <div class="cartoon"><img class="img-fluid" src="~assets/images/dashboard/cartoon.png" alt=""></div>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-8 xl-100 dashboard-sec box-col-12">
-          <px-card class="earning-card">
+          <Pxcard class="earning-card">
               <div class="row m-0">
                 <div class="col-xl-3 earning-content p-0">
                   <div class="row m-0 chart-left">
@@ -134,10 +134,10 @@
                   </div>
                 </div>
               </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-9 xl-100 chart_data_left box-col-12">
-          <px-card>
+          <Pxcard>
             <div class="row m-0 chart-main">
                 <div class="col-xl-3 col-md-6 col-sm-6 p-0 box-col-6">
                   <div class="media align-items-center">
@@ -228,10 +228,10 @@
                   </div>
                 </div>
               </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-3 xl-50 chart_data_right box-col-12">
-          <px-card>
+          <Pxcard>
             <div slot="with-padding">
               <div class="media align-items-center">
                 <div class="media-body right-chart-content">
@@ -244,10 +244,10 @@
                 <div class="knob-block text-center" id="ordervalue"></div>
               </div>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-3 xl-50 chart_data_right second d-none">
-          <px-card>
+          <Pxcard>
             <div slot="with-padding">
               <div class="media align-items-center">
                 <div class="media-body right-chart-content">
@@ -260,10 +260,10 @@
                 <div class="knob-block text-center" id="productvalue"></div>
               </div>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-4 xl-50 news box-col-6">
-          <px-card :actions="false">
+          <Pxcard :actions="false">
             <div slot="headerCustom">
               <div class="header-top">
                 <h5 class="m-0">News & Update</h5>
@@ -277,17 +277,17 @@
               </div>
             </div>
             <div>
-              <div class="news-update media"><img class="img-fluid mr-3 b-r-10" src="assets/images/dashboard/update/1.jpg" alt="">
+              <div class="news-update media"><img class="img-fluid mr-3 b-r-10" src="~assets/images/dashboard/update/1.jpg" alt="">
                 <div class="media-body">
                   <h6>36% off For pixel Couslations Types.</h6><span>Lorem Ipsum is simply dummy...</span><span class="time-detail d-block"><i data-feather="clock"></i>10 Minutes Ago</span>
                 </div>
               </div>
-              <div class="news-update media"><img class="img-fluid mr-3 b-r-10" src="assets/images/dashboard/update/2.jpg" alt="">
+              <div class="news-update media"><img class="img-fluid mr-3 b-r-10" src="~assets/images/dashboard/update/2.jpg" alt="">
                 <div class="media-body">
                   <h6>We are produce new product this</h6><span> Lorem Ipsum is simply text of the printing... </span><span class="time-detail d-block"><i data-feather="clock"></i>1 Hour Ago</span>
                 </div>
               </div>
-              <div class="news-update media"><img class="img-fluid mr-3 b-r-10" src="assets/images/dashboard/update/3.jpg" alt="">
+              <div class="news-update media"><img class="img-fluid mr-3 b-r-10" src="~assets/images/dashboard/update/3.jpg" alt="">
                 <div class="media-body">
                   <h6>50% off For COVID Couslations Types.</h6><span>Lorem Ipsum is simply dummy...</span><span class="time-detail d-block"><i data-feather="clock"></i>8 Hours Ago</span>
                 </div>
@@ -298,12 +298,12 @@
                 <a href="#">See all</a>
               </div>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-4 xl-50 appointment-sec box-col-6">
           <div class="row">
             <div class="col-xl-12">
-              <px-card :actions="false" class="card-no-border">
+              <Pxcard :actions="false" class="card-no-border">
                 <div slot="headerCustom">
                   <div class="header-top">
                     <h5 class="m-0">Appointment</h5>
@@ -322,7 +322,7 @@
                           <tbody>
                             <tr>
                               <td>
-                                <img class="img-fluid img-40 rounded-circle mb-3" src="assets/images/appointment/app-ent.jpg" alt="Image description">
+                                <img class="img-fluid img-40 rounded-circle mb-3" src="~assets/images/appointment/app-ent.jpg" alt="Image description">
                                 <div class="status-circle bg-primary"></div>
                               </td>
                               <td class="img-content-box">
@@ -340,7 +340,7 @@
                             </tr>
                             <tr>
                               <td>
-                                <img class="img-fluid img-40 rounded-circle" src="assets/images/appointment/app-ent.jpg" alt="Image description">
+                                <img class="img-fluid img-40 rounded-circle" src="~assets/images/appointment/app-ent.jpg" alt="Image description">
                                 <div class="status-circle bg-primary"></div>
                               </td>
                               <td class="img-content-box">
@@ -360,11 +360,11 @@
                         </table>
                       </div>
                 </div>
-              </px-card>
+              </Pxcard>
             </div>
 
             <div class="col-xl-12 alert-sec">
-              <px-card :actions="false" class="bg-img">
+              <Pxcard :actions="false" class="bg-img">
                 <div slot="headerCustom">
                   <div class="header-top">
                     <h5 class="m-0">Alert</h5>
@@ -381,12 +381,12 @@
                     >Lorem Ipsum is simply dummy...It is a long established fact that a reader will be distracted by</span>
                   </div>
                 </div>
-              </px-card>
+              </Pxcard>
             </div>
           </div>
         </div>
         <div class="col-xl-4 xl-50 notification box-col-6">
-          <px-card :actions="false" class="card-no-border">
+          <Pxcard :actions="false" class="card-no-border">
             <div slot="headerCustom">
               <div class="header-top">
                 <h5 class="m-0">notification</h5>
@@ -433,14 +433,14 @@
                     <div class="inner-img">
                       <img
                         class="img-fluid"
-                        src="assets/images/notification/1.jpg"
+                        src="~assets/images/notification/1.jpg"
                         alt="Product-1"
                       />
                     </div>
                     <div class="inner-img">
                       <img
                         class="img-fluid"
-                        src="assets/images/notification/2.jpg"
+                        src="~assets/images/notification/2.jpg"
                         alt="Product-2"
                       />
                     </div>
@@ -449,10 +449,10 @@
                 </div>
               </div>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-4 xl-50 appointment box-col-6">
-          <px-card :actions="false">
+          <Pxcard :actions="false">
             <div slot="headerCustom">
               <div class="header-top">
                 <h5 class="m-0">notification</h5>
@@ -477,10 +477,10 @@
                 </div>
               </div>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-4 xl-100 chat-sec box-col-6">
-          <px-card :actions="false" class="chat-default card-no-border">
+          <Pxcard :actions="false" class="chat-default card-no-border">
             <div slot="headerCustom">
               <div class="media media-dashboard">
                 <div class="media-body">
@@ -495,7 +495,7 @@
               <div class="chat">
                 <div class="media left-side-chat">
                   <div class="media-body d-flex">
-                    <div class="img-profile"> <img class="img-fluid" src="assets/images/User.jpg" alt="Profile"></div>
+                    <div class="img-profile"> <img class="img-fluid" src="~assets/images/User.jpg" alt="Profile"></div>
                     <div class="main-chat">
                       <div class="message-main">
                         <span class="mb-0">Hi deo, Please send me link.</span>
@@ -518,7 +518,7 @@
                 </div>
                 <div class="media left-side-chat">
                   <div class="media-body d-flex">
-                    <div class="img-profile"> <img class="img-fluid" src="assets/images/User.jpg" alt="Profile"></div>
+                    <div class="img-profile"> <img class="img-fluid" src="~assets/images/User.jpg" alt="Profile"></div>
                     <div class="main-chat">
                       <div class="sub-message message-main mt-0">
                         <span>It's argenty</span>
@@ -552,10 +552,10 @@
                 </div>
               </div>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
         <div class="col-xl-4 col-lg-12 xl-50 calendar-sec box-col-6">
-          <px-card>
+          <Pxcard>
             <div slot="with-padding" class="chat-box">
                 <div class="setting-dot">
                 <div class="setting-bg-primary date-picker-setting position-set pull-right">
@@ -564,7 +564,7 @@
               </div>
               <functional-calendar></functional-calendar>
             </div>
-          </px-card>
+          </Pxcard>
         </div>
       </div>
     </div>
