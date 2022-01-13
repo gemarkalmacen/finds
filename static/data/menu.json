@@ -1,10 +1,56 @@
 {
-  "data": [ 
+  "data": [
+    {
+      "headTitle1": "General",
+      "headTitle2": "Dashboards,Widgets & Layout.",
+      "type": "headtitle"
+    },
+    {
+      "title": "Dashboard",
+      "icon": "home",
+      "type": "sub",
+      "badgeType": "light-primary",
+      "active": false,
+      "children": [
         {
-          "title": "StaterKit", "icon": "home", "type": "sub", "badgeType": "primary", "badgeValue": "6", "active": false, "children": [
-            { "path": "/dashboard/default", "title": "Page1", "type": "link" },
-            { "path": "/sample_page", "title": "Page2", "type": "link" }
-          ]
+          "path": "/dashboard",
+          "title": "Default",
+          "type": "link"
         }
       ]
+    },
+    {
+      "title": "PPMP",
+      "icon": "airplay",
+      "type": "sub",
+      "active": false,
+      "children": [
+        {
+          "path": "/widgets/general",
+          "title": "General",
+          "type": "link"
+        },
+        {
+          "path": "/widgets/chart",
+          "title": "Chart",
+          "type": "link"
+        }
+      ]
+    },
+    {
+      "title": "Configuration",
+      "icon": "home",
+      "type": "sub",
+      "badgeType": "light-primary",
+      "badgeValue": "",
+      "active": false,
+      "children": [
+        {
+          "path": "/rbac",
+          "title": "RBAC",
+          "type": "link"
+        }
+      ]
+    }
+  ]
 }
