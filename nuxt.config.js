@@ -55,6 +55,13 @@ export default {
     '@nuxtjs/pwa',
   ],
 
+  // Axios module configuration: https://go.nuxtjs.dev/config-axios
+  axios: {
+    baseURL: process.env.API_URL,
+    credentials: true, // this says that in the request the httponly cookie should be sent
+    proxy: false,
+  },
+
   auth: {
     redirect: {
       login: '/login',
@@ -66,7 +73,7 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: process.env.API_URL+'api/auth/login',
+            url: process.env.API_URL+'api/v1/staff/auth/login',
             method: 'post',
           },
           logout: { 
@@ -86,13 +93,6 @@ export default {
     cookie: {
       prefix: 'auth.'
     }
-  },
-
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {
-    baseURL: process.env.API_URL,
-    credentials: true, // this says that in the request the httponly cookie should be sent
-    proxy: false,
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
