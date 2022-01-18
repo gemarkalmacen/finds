@@ -70,25 +70,41 @@ export default {
       home: '/dashboard'
     },
     strategies: {
-      local: {
+      'laravelSanctum' : {
+        provider: 'laravel/sanctum',
+        url: 'http://localhost:3232',
         endpoints: {
           login: {
-            url: process.env.API_URL+'api/v1/staff/auth/login',
-            method: 'post',
-          },
-          logout: { 
-            url: process.env.API_URL+'api/auth/logout',
-            method: 'post' 
-          },
-          user: { 
-            url: process.env.API_URL+'api/auth/user',
-            method: 'get' ,
-            propertyName: false
-          },
-        },
-        tokenRequired: false,
-        tokenType: false
+            // url: '/api/login',
+            url: '/api/v1/staff/auth/login'
+          }
+        }
       }
+      // local: {
+      //   endpoints: {
+      //     login: {
+      //       url: process.env.API_URL+'api/v1/staff/auth/login',
+      //       method: 'post',
+      //     },
+      //     logout: { 
+      //       url: process.env.API_URL+'api/auth/logout',
+      //       method: 'post' 
+      //     },
+      //     user: { 
+      //       url: process.env.API_URL+'api/auth/user',
+      //       method: 'get' ,
+      //       propertyName: false
+      //     },
+      //   },
+      //   tokenRequired: false,
+      //   tokenType: false
+      // }
+
+    },
+    redirect: {
+      login: '/login',
+      logout: '/',
+      home: '/dashboard'
     },
     cookie: {
       prefix: 'auth.'

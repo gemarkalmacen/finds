@@ -102,10 +102,18 @@ export default {
   layout: 'empty',
   methods: {
     login(){
-      this.$auth.loginWith('local', {
+      console.log("Logged In");
+      // this.$auth.loginWith('local', {
+      //   data: {
+      //     email: 'admin@gmail.com',
+      //     passowrd: 'password',
+      //   }
+      // })
+
+      this.$auth.loginWith('laravelSanctum', {
         data: {
           email: 'admin@gmail.com',
-          passowrd: 'password'
+          passowrd: 'password',
         }
       })
     }
