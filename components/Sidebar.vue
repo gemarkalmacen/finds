@@ -7,7 +7,7 @@
             src="../assets/images/logo/logo.png"
             alt="" /><img
             class="img-fluid for-dark"
-            src="../assets/images/logo/logo_dark.png"
+            src="~assets/images/logo/logo_dark.png"
             alt=""
         />
         </router-link>

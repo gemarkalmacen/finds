@@ -63,12 +63,12 @@ export default {
   },
 
   auth: {
-    redirect: {
-      login: '/login',
-      logout: '/',
-      callback: '/login',
-      home: '/dashboard'
-    },
+    // redirect: {
+    //   login: '/login',
+    //   logout: '/',
+    //   // callback: '/login',
+    //   home: '/dashboard'
+    // },
     strategies: {
       'laravelSanctum' : {
         provider: 'laravel/sanctum',
@@ -80,6 +80,7 @@ export default {
           }
         }
       }
+
       // local: {
       //   endpoints: {
       //     login: {
@@ -99,16 +100,10 @@ export default {
       //   tokenRequired: false,
       //   tokenType: false
       // }
-
     },
-    redirect: {
-      login: '/login',
-      logout: '/',
-      home: '/dashboard'
-    },
-    cookie: {
-      prefix: 'auth.'
-    }
+    // cookie: {
+    //   prefix: 'auth.'
+    // }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
