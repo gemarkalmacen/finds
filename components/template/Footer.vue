@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import json from '../static/data/menu'
+  import json from '../../static/data/menu'
   export default {
     name: 'footerpage',
     data(){

@@ -70,7 +70,7 @@
     <div class="header-logo-wrapper">
       <div class="logo-wrapper">
         <router-link to="/">
-          <img class="img-fluid" src="../assets/images/logo/logo.png" alt />
+          <img class="img-fluid" src="~assets/images/logo/logo.png" alt />
         </router-link>
       </div>
       <div class="toggle-sidebar" @click="toggle_sidebar">
@@ -147,7 +147,7 @@
         </li>
         <li class="onhover-dropdown">
           <div class="notification-box"><feather type="star"></feather></div>
-          <Bookmark />
+          <TemplateBookmark />
         </li>
         <li>
           <div class="mode">
@@ -169,7 +169,7 @@
               <div class="media">
                 <img
                   class="img-fluid rounded-circle mr-3 img-60"
-                  src="../assets/images/ecommerce/01.jpg"
+                  src="~assets/images/ecommerce/01.jpg"
                   alt=""
                 />
                 <div class="media-body">
@@ -214,7 +214,7 @@
               <div class="media">
                 <img
                   class="img-fluid rounded-circle mr-3 img-60"
-                  src="../assets/images/ecommerce/03.jpg"
+                  src="~assets/images/ecommerce/03.jpg"
                   alt=""
                 />
                 <div class="media-body">
@@ -288,7 +288,7 @@
               <div class="media">
                 <img
                   class="img-fluid rounded-circle mr-3"
-                  src="../assets/images/user/1.jpg"
+                  src="~assets/images/user/1.jpg"
                   alt=""
                 />
                 <div class="status-circle online"></div>
@@ -303,7 +303,7 @@
               <div class="media">
                 <img
                   class="img-fluid rounded-circle mr-3"
-                  src="../assets/images/user/2.jpg"
+                  src="~assets/images/user/2.jpg"
                   alt=""
                 />
                 <div class="status-circle online"></div>
@@ -318,7 +318,7 @@
               <div class="media">
                 <img
                   class="img-fluid rounded-circle mr-3"
-                  src="../assets/images/user/4.jpg"
+                  src="~assets/images/user/4.jpg"
                   alt=""
                 />
                 <div class="status-circle offline"></div>
@@ -347,7 +347,7 @@
           <div class="media profile-media">
             <img
               class="b-r-10"
-              src="../assets/images/dashboard/profile.jpg"
+              src="~assets/images/dashboard/profile.jpg"
               alt=""
             />
             <div class="media-body">

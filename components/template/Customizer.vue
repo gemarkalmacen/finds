@@ -125,7 +125,7 @@
                 <div class="layout-img">
                   <a @click="handlePageLayputs('compact-wrapper', 'Dubai')"
                     ><img
-                      src="../assets/images/layouts/1.jpg"
+                      src="~assets/images/layouts/1.jpg"
                       class="img-fluid"
                       alt="oneone"
                   /></a>
@@ -137,7 +137,7 @@
                 <div class="layout-img">
                   <a @click="handlePageLayputs('only-body', 'London')"
                     ><img
-                      src="../assets/images/layouts/2.jpg"
+                      src="~assets/images/layouts/2.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -152,7 +152,7 @@
                       handlePageLayputs('compact-wrapper modern-type', 'Seoul')
                     "
                     ><img
-                      src="../assets/images/layouts/9.jpg"
+                      src="~assets/images/layouts/9.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -170,7 +170,7 @@
                       )
                     "
                     ><img
-                      src="../assets/images/layouts/10.jpg"
+                      src="~assets/images/layouts/10.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -185,7 +185,7 @@
                       handlePageLayputs('compact-wrapper dark-sidebar', 'Paris')
                     "
                     ><img
-                      src="../assets/images/layouts/3.jpg"
+                      src="~assets/images/layouts/3.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -197,7 +197,7 @@
                 <div class="layout-img">
                   <a @click="handlePageLayputs('compact-sidebar', 'Tokyo')"
                     ><img
-                      src="../assets/images/layouts/4.jpg"
+                      src="~assets/images/layouts/4.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -215,7 +215,7 @@
                       )
                     "
                     ><img
-                      src="../assets/images/layouts/5.jpg"
+                      src="~assets/images/layouts/5.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -233,7 +233,7 @@
                       )
                     "
                     ><img
-                      src="../assets/images/layouts/6.jpg"
+                      src="~assets/images/layouts/6.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -248,7 +248,7 @@
                       handlePageLayputs('compact-wrapper box-layout', 'NewYork')
                     "
                     ><img
-                      src="../assets/images/layouts/7.jpg"
+                      src="~assets/images/layouts/7.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -266,7 +266,7 @@
                       )
                     "
                     ><img
-                      src="../assets/images/layouts/8.jpg"
+                      src="~assets/images/layouts/8.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -284,7 +284,7 @@
                       )
                     "
                     ><img
-                      src="../assets/images/layouts/11.jpg"
+                      src="~assets/images/layouts/11.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -302,7 +302,7 @@
                       )
                     "
                     ><img
-                      src="../assets/images/layouts/12.jpg"
+                      src="~assets/images/layouts/12.jpg"
                       class="img-fluid"
                       alt="one"
                   /></a>
@@ -542,7 +542,7 @@
 </template>
 <script>
 import { mapState } from "vuex";
-import { layoutClasses } from "../constants/layout";
+import { layoutClasses } from "../../constants/layout";
 export default {
   name: "customizer",
   data() {

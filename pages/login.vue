@@ -100,61 +100,33 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isLoading: false,
+      form: {
+        email: '',
+        password: '',
+      },
+      errors: {
+        email: '',
+        password: '',
+        message: '',
+      }
+    }
+  },
   layout: 'empty',
   methods: {
     login(){
-      // console.log("Logged In");
-      // this.$auth.loginWith('local', {
-      //   data: {
-      //     email: 'admin@gmail.com',
-      //     password: 'password1234',
-      //   }
-      // })
-      // .then(res => {
-      //   console.log(res);
-      // })
-      // .cath(error => {
-      //   console.log(error);
-      // });
-      // var vm = this;
-      // vm.$axios.$get('/sanctum/csrf-cookie').then(response => {
-        this.$auth.loginWith('laravelSanctum', {
-          data: {
-            email: 'admin@gmail.com',
-            password: 'password',
-          }
+        this.$auth
+          .loginWith('local', {
+            data: this.form
         })
-      // });
-      // var vm = this;
-      // vm.$axios.$get('/sanctum/csrf-cookie').then(response => {
-      //   this.$auth.loginWith('local', {
-      //     data: {
-      //       email: 'admin@gmail.com',
-      //       password: 'password1234',
-      //     }
-      //   })
-        // .then((response) => {
-        //   vm.isLoading = false
-        //   // vm.$toast.success(response.data.message)
-        //   // vm.$auth.setUser(response.data.user)
-        //   // vm.$router.push({ path: '/dashboard' });
-        //   console.log("SUCCESS");
-        // })
-        // .catch(errors => {
-        //   // vm.$toast.clear()
-        //   // vm.$toast.error(errors.response.data[0])
-        //   console.log(errors)
-        //   vm.isLoading = false
-        //   vm.errors.email = ''
-        //   vm.errors.password = ''
-        //   vm.errors.message = ''
-        //   vm.errors.message = errors.response.data.message != undefined ? errors.response.data.message : '';
-        //   if (errors.response.data) {
-        //     vm.errors.email = errors.response.data.email != undefined ? errors.response.data.email[0] : '';
-        //     vm.errors.password = errors.response.data.password != undefined ? errors.response.data.password[0] : '';
-        //   }
-        // });
-      // });
+        .then(res => {
+          console.log(res);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     }
   }
 }

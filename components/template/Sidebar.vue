@@ -4,7 +4,7 @@
         <router-link to="/">
           <img
             class="img-fluid for-light"
-            src="../assets/images/logo/logo.png"
+            src="~assets/images/logo/logo.png"
             alt="" /><img
             class="img-fluid for-dark"
             src="~assets/images/logo/logo_dark.png"
@@ -20,7 +20,7 @@
         <router-link to="/">
           <img
             class="img-fluid"
-            src="../assets/images/logo/logo-icon.png"
+            src="~assets/images/logo/logo-icon.png"
             alt=""
         /></router-link>
       </div>
@@ -40,7 +40,7 @@
               <router-link to="/">
                 <img
                   class="img-fluid"
-                  src="../assets/images/logo/logo-icon.png"
+                  src="~assets/images/logo/logo-icon.png"
                   alt=""
               /></router-link>
               <div class="mobile-back text-right">
@@ -237,7 +237,7 @@
 </template>
 <script>
 import { mapState } from "vuex";
-import { layoutClasses } from '../constants/layout'
+import { layoutClasses } from '../../constants/layout'
 export default {
   name: "Sidebar",
   data() {

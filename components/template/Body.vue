@@ -2,12 +2,12 @@
   <div>
     <div class="page-wrapper" :class="layoutobj">
       <div class="page-header" :class="{ close_icon:!togglesidebar }">
-        <Header @clicked="sidebar_toggle" />
+        <TemplateHeader @clicked="sidebar_toggle" />
       </div>
       <div class="page-body-wrapper">
         <div class="bg-overlay"></div>
         <div class="sidebar-wrapper" :class="[{ close_icon : !togglesidebar }]" :sidebar-layout="layout.settings.sidebar_setting">
-          <Sidebar @clicked="sidebar_toggle" />
+          <TemplateSidebar @clicked="sidebar_toggle" />
         </div>
         <div class="page-body" @click="hidesecondmenu()">
           <transition name="fadeIn" enter-active-class="animated fadeIn">
@@ -16,7 +16,7 @@
         </div>
         <Footer/>
       </div>
-      <Customizer/>
+      <TemplateCustomizer/>
       <TapTop/>
     </div>
   </div>
@@ -24,7 +24,7 @@
 
 <script>
   import { mapState } from 'vuex';
-  import { layoutClasses } from '../constants/layout';
+  import { layoutClasses } from '../../constants/layout';
   // import Header from './header';
   // import Sidebar from './sidebar.vue';
   // import Footer from './footer';
