@@ -1,53 +1,85 @@
 {
   "data": [
     {
-      "headTitle1": "General",
-      "headTitle2": "Dashboards,Widgets & Layout.",
-      "type": "headtitle"
-    },
-    {
       "title": "Dashboard",
-      "icon": "home",
-      "type": "sub",
-      "badgeType": "light-primary",
-      "active": false,
-      "children": [
-        {
-          "path": "/dashboard",
-          "title": "Default",
-          "type": "link"
-        }
-      ]
+      "icon": "grid",
+      "path": "/dashboard",
+      "type": "link",
+      "active": false
     },
     {
-      "title": "PPMP",
-      "icon": "airplay",
+      "title": "Transactions",
+      "icon": "layers",
       "type": "sub",
       "active": false,
       "children": [
         {
-          "path": "/widgets/general",
-          "title": "General",
-          "type": "link"
+          "title": "Tracking Documents",
+          "type": "sub",
+          "active": false,
+          "children": [
+            {
+              "path": "/transactions/trackingdocuments/purchaserequest",
+              "title": "Purchase Request",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/trackingdocuments/voucher",
+              "title": "Voucher",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/trackingdocuments/tev",
+              "title": "TEV",
+              "type": "link"
+            }
+          ]
         },
         {
-          "path": "/widgets/chart",
-          "title": "Chart",
-          "type": "link"
+          "title": "Remittances",
+          "type": "sub",
+          "active": false,
+          "children": [
+            {
+              "path": "/transactions/remittances/gsis",
+              "title": "GSIS",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/sss",
+              "title": "SSS",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/philhealth",
+              "title": "Philhealth",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/pagibig",
+              "title": "Pag-ibig",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/sweap",
+              "title": "SWEAP",
+              "type": "link"
+            }
+          ]
         }
       ]
     },
     {
-      "title": "Configuration",
-      "icon": "home",
+      "title": "Accountability",
+      "icon": "folder",
       "type": "sub",
       "badgeType": "light-primary",
       "badgeValue": "",
       "active": false,
       "children": [
         {
-          "path": "/rbac",
-          "title": "RBAC",
+          "path": "/accountability/ppe_semi",
+          "title": "PPE / Semi",
           "type": "link"
         }
       ]
