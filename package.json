@@ -25,6 +25,7 @@
     "vue-feather": "^1.0.0",
     "vue-form-wizard": "^0.8.4",
     "vue-functional-calendar": "^2.8.88",
+    "vue-multiselect": "^2.1.6",
     "vue-slider-component": "^3.0.41",
     "vue-sweetalert2": "^2.1.1",
     "vue-tour": "^1.1.0",
