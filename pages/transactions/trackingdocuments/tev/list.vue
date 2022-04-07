@@ -85,7 +85,10 @@
 
                   <template #cell(details)>
                     <button class="btn btn-primary btn-sm px-2">
-                      <i class="fa fa-file"></i>
+                      <i class="fa fa-file text-light"></i>
+                    </button>
+                    <button class="btn btn-light btn-sm px-2">
+                      <i class="fa fa-print text-primary"></i>
                     </button>
                   </template>
                 </b-table>

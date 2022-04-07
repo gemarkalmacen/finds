@@ -5,15 +5,25 @@
       <div class="row">
         <div class="col-md-12">
           <div class="card mh-70vh">
-            <div class="card-header py-3 px-5">
-              <p class="h4">Itenerary of Travel (IOT) <small>Form</small></p>
-              <button class="btn btn-primary float-right px-2">
-                <i class="fa fa-save mr-2"></i>
-                Save import
-              </button>
+            <div class="card-header py-3 px-5 d-flex">
+              <p class="h4 mb-0">
+                Itenerary of Travel (IOT) <small><i>Appendix 45</i> Form</small>
+              </p>
+              <p class="h6 ml-auto m-wc">No. <u>TEV-22-01-0001</u></p>
             </div>
-
             <div class="card-body">
+              <div>
+                <div class="form-group">
+                  <label for="purpose">Purpose of Travel:</label>
+                  <input
+                    v-model="purpose"
+                    type="text"
+                    class="form-control"
+                    name="purpose"
+                    id="purpose"
+                  />
+                </div>
+              </div>
               <table class="table table-striped table-bordered">
                 <thead class="text-center thead-dark">
                   <tr>
@@ -47,11 +57,11 @@
                 <tbody>
                   <tr v-for="(er, idx) in entryRow" :key="idx">
                     <td class="p-0">
-                      <input
-                        type="date"
-                        class="form-control border-0"
+                      <datepicker
+                        input-class="datepicker-here form-control digits border-0 bg-white text-dark"
+                        :format="format"
                         v-model="er.date"
-                      />
+                      ></datepicker>
                     </td>
                     <td class="p-0">
                       <input
@@ -130,7 +140,18 @@
                 </tfoot>
               </table>
             </div>
-            <div class="card-footer py-3 px-5"></div>
+            <div class="card-footer py-3 px-5">
+              <div class="ml-auto d-flex w-mc">
+                <button class="btn btn-light px-2 mr-1">
+                  <i class="fa fa-close mr-2"></i>
+                  Cancel
+                </button>
+                <button class="btn btn-primary px-2">
+                  <i class="fa fa-save mr-2"></i>
+                  Save IOT
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -141,10 +162,12 @@
 
 <script>
 import Multiselect from "vue-multiselect";
+import Datepicker from "vuejs-datepicker";
 
 export default {
   components: {
     Multiselect,
+    Datepicker,
   },
   data() {
     return {
@@ -154,6 +177,7 @@ export default {
         { code: 3, name: "Hired" },
         { code: 4, name: "PUV" },
       ],
+      purpose: null,
       entryRow: [
         {
           date: null,
@@ -166,6 +190,7 @@ export default {
           others: null,
         },
       ],
+      format: "MM/dd/yyyy",
     };
   },
   computed: {
@@ -173,9 +198,13 @@ export default {
       let result = 0;
       this.entryRow.forEach((i) => {
         result +=
-          (i.transportation == null ? 0 : parseFloat(i.transportation)) +
-          (i.per_diem == null ? 0 : parseFloat(i.per_diem)) +
-          (i.others == null ? 0 : parseFloat(i.others));
+          (i.transportation == null || i.transportation == ""
+            ? 0
+            : parseFloat(i.transportation)) +
+          (i.per_diem == null || i.per_diem == ""
+            ? 0
+            : parseFloat(i.per_diem)) +
+          (i.others == null || i.others == "" ? 0 : parseFloat(i.others));
       });
       return this.decimalFormat(result);
     },
@@ -185,7 +214,8 @@ export default {
       return this.decimalFormat(
         num.reduce(
           (b, a) =>
-            parseFloat(b == null ? 0 : b) + parseFloat(a == null ? 0 : a),
+            parseFloat(b == null || b == "" ? 0 : b) +
+            parseFloat(a == null || a == "" ? 0 : a),
           0
         )
       );
