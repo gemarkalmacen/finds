@@ -29,7 +29,7 @@
               "type": "link"
             },
             {
-              "path": "/transactions/trackingdocuments/tev",
+              "path": "/transactions/trackingdocuments/tev/list",
               "title": "TEV",
               "type": "link"
             }

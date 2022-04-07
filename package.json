@@ -25,10 +25,12 @@
     "vue-feather": "^1.0.0",
     "vue-form-wizard": "^0.8.4",
     "vue-functional-calendar": "^2.8.88",
+    "vue-multiselect": "^2.1.6",
     "vue-slider-component": "^3.0.41",
     "vue-sweetalert2": "^2.1.1",
     "vue-tour": "^1.1.0",
-    "vuedraggable": "^2.23.2"
+    "vuedraggable": "^2.23.2",
+    "vuejs-datepicker": "^1.6.2"
   },
   "devDependencies": {
     "node-sass": "^4.13.0"
