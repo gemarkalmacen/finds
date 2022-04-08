@@ -111,11 +111,13 @@
                     <td class="p-1 d-flex">
                       <button
                         @click="addRow(idx)"
-                        class="btn btn-primary btn-sm p-1 px-2 d-block mr-2"
+                        class="btn btn-primary btn-sm p-1 px-2 d-block"
+                        :class="idx == 0 ? 'm-auto' : 'mr-2'"
                       >
                         <i class="fa fa-plus"></i>
                       </button>
                       <button
+                        v-if="idx != 0"
                         @click="deleteRow(idx)"
                         class="btn btn-secondary btn-sm p-1 px-2 d-block"
                       >
@@ -226,7 +228,9 @@ export default {
       this.entryRow.splice(idx + 1, 0, arr_data);
     },
     deleteRow(idx) {
-      this.entryRow.splice(idx, 1);
+      if (idx != 0) {
+        this.entryRow.splice(idx, 1);
+      }
     },
     decimalFormat(num) {
       let number = parseFloat(num);
