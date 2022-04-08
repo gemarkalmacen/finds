@@ -15,13 +15,7 @@
               <div>
                 <div class="form-group">
                   <label for="purpose">Purpose of Travel:</label>
-                  <input
-                    v-model="purpose"
-                    type="text"
-                    class="form-control"
-                    name="purpose"
-                    id="purpose"
-                  />
+                  <b-form-textarea v-model="purpose" rows="3"></b-form-textarea>
                 </div>
               </div>
               <table class="table table-striped table-bordered">
@@ -39,15 +33,7 @@
                     <th rowspan="2" class="p-1 pb-1p">Per Diem</th>
                     <th rowspan="2" class="p-1 pb-1p">Others</th>
                     <th rowspan="2" class="p-1 pb-1p">Total Amount</th>
-                    <th rowspan="2" class="p-1">
-                      Action
-                      <button
-                        @click="addRow"
-                        class="d-block m-auto btn btn-xs btn-primary"
-                      >
-                        <i class="fa fa-plus"></i>
-                      </button>
-                    </th>
+                    <th rowspan="2" class="p-1 pb-1p">Action</th>
                   </tr>
                   <tr>
                     <th class="p-1">Departure</th>
@@ -122,10 +108,16 @@
                         {{ calcTA(er.transportation, er.per_diem, er.others) }}
                       </h6>
                     </td>
-                    <td class="p-1">
+                    <td class="p-1 d-flex">
+                      <button
+                        @click="addRow(idx)"
+                        class="btn btn-primary btn-sm p-1 px-2 d-block mr-2"
+                      >
+                        <i class="fa fa-plus"></i>
+                      </button>
                       <button
                         @click="deleteRow(idx)"
-                        class="btn btn-secondary btn-sm p-1 px-2 d-block m-auto"
+                        class="btn btn-secondary btn-sm p-1 px-2 d-block"
                       >
                         <i class="fa fa-minus"></i>
                       </button>
@@ -220,8 +212,8 @@ export default {
         )
       );
     },
-    addRow() {
-      this.entryRow.push({
+    addRow(idx) {
+      let arr_data = {
         date: null,
         destination: null,
         departure: null,
@@ -230,7 +222,8 @@ export default {
         transportation: null,
         per_diem: null,
         others: null,
-      });
+      };
+      this.entryRow.splice(idx + 1, 0, arr_data);
     },
     deleteRow(idx) {
       this.entryRow.splice(idx, 1);
