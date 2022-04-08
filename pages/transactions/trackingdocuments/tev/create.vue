@@ -1,5 +1,6 @@
 <template>
   <div>
+    <BreadCrumbs main="Tracking Documents" title="TEV" subTitle="Create" />
     <!-- Container-fluid starts-->
     <div class="container-fluid">
       <div class="row">
@@ -142,10 +143,13 @@
             </div>
             <div class="card-footer py-3 px-5">
               <div class="ml-auto d-flex w-mc">
-                <button class="btn btn-light px-2 mr-1">
+                <nuxt-link
+                  class="btn btn-light px-2 mr-1"
+                  to="/transactions/trackingdocuments/tev/list"
+                >
                   <i class="fa fa-close mr-2"></i>
                   Cancel
-                </button>
+                </nuxt-link>
                 <button class="btn btn-primary px-2">
                   <i class="fa fa-save mr-2"></i>
                   Save IOT

@@ -15,6 +15,9 @@
               </li>
               <li class="breadcrumb-item" v-if="main">{{ main }}</li>
               <li class="breadcrumb-item active" v-if="title">{{ title }}</li>
+              <li class="breadcrumb-item active" v-if="subTitle">
+                {{ subTitle }}
+              </li>
             </ol>
           </div>
         </div>
@@ -25,10 +28,14 @@
 
 <script>
 export default {
+  name: "BreadCrumbs",
   components: {},
   props: {
     title: {
-      default: "home",
+      default: "",
+    },
+    subTitle: {
+      default: "",
     },
     main: {
       default: "",
