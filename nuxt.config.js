@@ -38,6 +38,7 @@ export default {
     { src: "~/plugins/apexchart", mode: "client" },
     { src: "~/plugins/chartist", mode: "client" },
     { src: "~/plugins/functional-calendar", mode: "client" },
+    { src: "~/plugins/components", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

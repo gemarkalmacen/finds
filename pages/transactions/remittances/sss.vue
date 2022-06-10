@@ -1,5 +1,8 @@
 <template>
-  <h1>This is SSS Page</h1>
+  <div>
+    <BreadCrumbs main="Remittances" title="SSS" />
+    <h1>This is SSS Page</h1>
+  </div>
 </template>
 
 <script>
