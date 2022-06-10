@@ -2,100 +2,65 @@
   <div>
     <div class="logo-wrapper">
       <nuxt-link to="/">
-        <img
-          class="img-fluid for-light"
-          src="~assets/images/logo/logo.png"
-          alt=""
-        /><img
-          class="img-fluid for-dark"
-          src="~assets/images/logo/logo_dark.png"
-          alt=""
-        />
+        <img class="img-fluid for-light" src="~assets/images/logo/logo.png" alt="" /><img class="img-fluid for-dark"
+          src="~assets/images/logo/logo_dark.png" alt="" />
       </nuxt-link>
       <div class="back-btn" @click="toggle_sidebar">
         <i class="fa fa-angle-left"></i>
       </div>
       <div class="toggle-sidebar" @click="toggle_sidebar">
-        <feather
-          class="status_toggle middle"
-          type="grid"
-          id="sidebar-toggle"
-        ></feather>
+        <feather class="status_toggle middle" type="grid" id="sidebar-toggle"></feather>
       </div>
     </div>
     <div class="logo-icon-wrapper">
       <nuxt-link to="/">
-        <img class="img-fluid" src="~assets/images/logo/logo-icon.png" alt=""
-      /></nuxt-link>
+        <img class="img-fluid" src="~assets/images/logo/logo-icon.png" alt="" />
+      </nuxt-link>
     </div>
     <nav class="sidebar-main">
-      <li
-        class="left-arrow"
-        :class="{
-          'd-none':
-            layout.settings.layout_type == 'rtl'
-              ? hideLeftArrowRTL
-              : hideLeftArrow,
-        }"
-        @click="
-          layoutobject.split(' ').includes('horizontal-wrapper') &&
-          layout.settings.layout_type === 'rtl'
-            ? scrollToLeftRTL()
-            : scrollToLeft()
-        "
-      >
+      <li class="left-arrow" :class="{
+        'd-none':
+          layout.settings.layout_type == 'rtl'
+            ? hideLeftArrowRTL
+            : hideLeftArrow,
+      }" @click="
+  layoutobject.split(' ').includes('horizontal-wrapper') &&
+    layout.settings.layout_type === 'rtl'
+    ? scrollToLeftRTL()
+    : scrollToLeft()
+">
         <feather type="arrow-left"></feather>
       </li>
       <div id="sidebar-menu" class="pt-4">
-        <ul
-          class="sidebar-links custom-scrollbar"
-          id="myDIV"
-          :style="[
-            layoutobject.split(' ').includes('horizontal-wrapper')
-              ? layout.settings.layout_type == 'rtl'
-                ? { 'margin-right': margin + 'px' }
-                : { 'margin-left': margin + 'px' }
-              : { margin: '0px' },
-          ]"
-        >
+        <ul class="sidebar-links custom-scrollbar" id="myDIV" :style="[
+          layoutobject.split(' ').includes('horizontal-wrapper')
+            ? layout.settings.layout_type == 'rtl'
+              ? { 'margin-right': margin + 'px' }
+              : { 'margin-left': margin + 'px' }
+            : { margin: '0px' },
+        ]">
           <li class="back-btn">
             <nuxt-link to="/">
-              <img
-                class="img-fluid"
-                src="~assets/images/logo/logo-icon.png"
-                alt=""
-            /></nuxt-link>
+              <img class="img-fluid" src="~assets/images/logo/logo-icon.png" alt="" />
+            </nuxt-link>
             <div class="mobile-back text-right">
-              <span>Back</span
-              ><i class="fa fa-angle-right pl-2" aria-hidden="true"></i>
+              <span>Back</span><i class="fa fa-angle-right pl-2" aria-hidden="true"></i>
             </div>
           </li>
-          <li
-            v-for="(menuItem, index) in menuItems"
-            :key="index"
-            :class="{
-              active: menuItem.active,
-              'sidebar-main-title': menuItem.type == 'headtitle',
-            }"
-            class="sidebar-list"
-          >
+          <li v-for="(menuItem, index) in menuItems" :key="index" :class="{
+            active: menuItem.active,
+            'sidebar-main-title': menuItem.type == 'headtitle',
+          }" class="sidebar-list">
             <!-- link title -->
             <div v-if="menuItem.type == 'headtitle'">
               <h6 class="lan-1">{{ menuItem.headTitle1 }}</h6>
               <p class="lan-2">{{ menuItem.headTitle2 }}</p>
             </div>
             <!-- Sub -->
-            <label
-              :class="'badge badge-' + menuItem.badgeType"
-              v-if="menuItem.badgeType"
-              >{{ menuItem.badgeValue }}</label
-            >
-            <a
-              href="javascript:void(0)"
-              class="sidebar-link sidebar-title"
-              v-if="menuItem.type == 'sub'"
-              @click="setNavActive(menuItem, index)"
-            >
+            <label :class="'badge badge-' + menuItem.badgeType" v-if="menuItem.badgeType">{{ menuItem.badgeValue
+            }}</label>
+            <a href="javascript:void(0)" class="sidebar-link sidebar-title" v-if="menuItem.type == 'sub'"
+              @click="setNavActive(menuItem, index)">
               <feather :type="menuItem.icon" class="top"></feather>
               <span>
                 {{ menuItem.title }}
@@ -105,218 +70,107 @@
               </div>
             </a>
             <!-- Link -->
-            <nuxt-link
-              :to="menuItem.path"
-              class="sidebar-link sidebar-title"
-              v-if="menuItem.type == 'link'"
-              nuxt-link-exact-active
-            >
+            <nuxt-link :to="menuItem.path" class="sidebar-link sidebar-title" v-if="menuItem.type == 'link'"
+              nuxt-link-exact-active>
               <feather :type="menuItem.icon" class="top"></feather>
               <span>
                 {{ menuItem.title }}
               </span>
-              <i
-                class="fa fa-angle-right pull-right"
-                v-if="menuItem.children"
-              ></i>
+              <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
             </nuxt-link>
             <!-- External Link -->
-            <a
-              :href="menuItem.path"
-              class="sidebar-link sidebar-title"
-              v-if="menuItem.type == 'extLink'"
-              @click="setNavActive(menuItem, index)"
-            >
+            <a :href="menuItem.path" class="sidebar-link sidebar-title" v-if="menuItem.type == 'extLink'"
+              @click="setNavActive(menuItem, index)">
               <feather :type="menuItem.icon" class="top"></feather>
               <span>
                 {{ menuItem.title }}
               </span>
-              <i
-                class="fa fa-angle-right pull-right"
-                v-if="menuItem.children"
-              ></i>
+              <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
             </a>
             <!-- External Tab Link -->
-            <a
-              :href="menuItem.path"
-              target="_blank"
-              class="sidebar-link sidebar-title"
-              v-if="menuItem.type == 'extTabLink'"
-              @click="setNavActive(menuItem, index)"
-            >
+            <a :href="menuItem.path" target="_blank" class="sidebar-link sidebar-title"
+              v-if="menuItem.type == 'extTabLink'" @click="setNavActive(menuItem, index)">
               <feather :type="menuItem.icon" class="top"></feather>
               <span>
                 {{ menuItem.title }}
               </span>
-              <i
-                class="fa fa-angle-right pull-right"
-                v-if="menuItem.children"
-              ></i>
+              <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
             </a>
             <!-- 2nd Level Menu -->
-            <ul
-              class="sidebar-submenu 2ndlevel"
-              v-if="menuItem.children"
-              :class="{ 'menu-open': menuItem.active }"
-            >
-              <li
-                v-for="(childrenItem, index) in menuItem.children"
-                :key="index"
-                :class="{ active: childrenItem.active }"
-              >
+            <ul class="sidebar-submenu 2ndlevel" v-if="menuItem.children" :class="{ 'menu-open': menuItem.active }">
+              <li v-for="(childrenItem, index) in menuItem.children" :key="index"
+                :class="{ active: childrenItem.active }">
                 <!-- Sub -->
-                <a
-                  class="submenu-title"
-                  :class="{ active: childrenItem.active }"
-                  href="javascript:void(0)"
-                  v-if="childrenItem.type == 'sub'"
-                  @click="setNavActive(childrenItem, index)"
-                >
+                <a class="submenu-title" :class="{ active: childrenItem.active }" href="javascript:void(0)"
+                  v-if="childrenItem.type == 'sub'" @click="setNavActive(childrenItem, index)">
                   {{ childrenItem.title }}
-                  <label
-                    :class="
-                      'badge badge-' + childrenItem.badgeType + ' pull-right'
-                    "
-                    v-if="childrenItem.badgeType"
-                    >{{ childrenItem.badgeValue }}</label
-                  >
-                  <i
-                    class="fa fa-angle-right pull-right mt-1"
-                    :class="{ 'fa-angle-down': childrenItem.active }"
-                    v-if="childrenItem.children"
-                  ></i>
+                  <label :class="
+                    'badge badge-' + childrenItem.badgeType + ' pull-right'
+                  " v-if="childrenItem.badgeType">{{ childrenItem.badgeValue }}</label>
+                  <i class="fa fa-angle-right pull-right mt-1" :class="{ 'fa-angle-down': childrenItem.active }"
+                    v-if="childrenItem.children"></i>
                 </a>
                 <!-- Link -->
-                <nuxt-link
-                  class="submenu-title"
-                  :to="childrenItem.path"
-                  v-if="childrenItem.type == 'link'"
-                  nuxt-link-exact-active
-                >
+                <nuxt-link class="submenu-title" :to="childrenItem.path" v-if="childrenItem.type == 'link'"
+                  nuxt-link-exact-active>
                   {{ childrenItem.title }}
-                  <label
-                    :class="
-                      'badge badge-' + childrenItem.badgeType + ' pull-right'
-                    "
-                    v-if="childrenItem.badgeType"
-                    >{{ childrenItem.badgeValue }}</label
-                  >
-                  <i
-                    class="fa fa-angle-right pull-right mt-1"
-                    v-if="childrenItem.children"
-                  ></i>
+                  <label :class="
+                    'badge badge-' + childrenItem.badgeType + ' pull-right'
+                  " v-if="childrenItem.badgeType">{{ childrenItem.badgeValue }}</label>
+                  <i class="fa fa-angle-right pull-right mt-1" v-if="childrenItem.children"></i>
                 </nuxt-link>
                 <!-- External Link -->
-                <a
-                  :href="childrenItem.path"
-                  v-if="childrenItem.type == 'extLink'"
-                  class="submenu-title"
-                >
+                <a :href="childrenItem.path" v-if="childrenItem.type == 'extLink'" class="submenu-title">
                   {{ childrenItem.title }}
-                  <label
-                    :class="
-                      'badge badge-' + childrenItem.badgeType + ' pull-right'
-                    "
-                    v-if="childrenItem.badgeType"
-                    >{{ childrenItem.badgeValue }}</label
-                  >
-                  <i
-                    class="fa fa-angle-right pull-right mt-1"
-                    v-if="childrenItem.children"
-                  ></i>
+                  <label :class="
+                    'badge badge-' + childrenItem.badgeType + ' pull-right'
+                  " v-if="childrenItem.badgeType">{{ childrenItem.badgeValue }}</label>
+                  <i class="fa fa-angle-right pull-right mt-1" v-if="childrenItem.children"></i>
                 </a>
                 <!-- External Tab Link -->
-                <a
-                  class="submenu-title"
-                  :href="childrenItem.path"
-                  target="_blank"
-                  v-if="childrenItem.type == 'extTabLink'"
-                >
+                <a class="submenu-title" :href="childrenItem.path" target="_blank"
+                  v-if="childrenItem.type == 'extTabLink'">
                   {{ childrenItem.title }}
-                  <label
-                    :class="
-                      'badge badge-' + childrenItem.badgeType + ' pull-right'
-                    "
-                    v-if="childrenItem.badgeType"
-                    >{{ childrenItem.badgeValue }}</label
-                  >
-                  <i
-                    class="fa fa-angle-right pull-right mt-1"
-                    v-if="childrenItem.children"
-                  ></i>
+                  <label :class="
+                    'badge badge-' + childrenItem.badgeType + ' pull-right'
+                  " v-if="childrenItem.badgeType">{{ childrenItem.badgeValue }}</label>
+                  <i class="fa fa-angle-right pull-right mt-1" v-if="childrenItem.children"></i>
                 </a>
                 <!-- 3rd Level Menu -->
-                <ul
-                  class="nav-sub-childmenu submenu-content"
-                  v-if="childrenItem.children"
-                  :class="{ opensubchild: childrenItem.active }"
-                >
-                  <li
-                    v-for="(childrenSubItem, index) in childrenItem.children"
-                    :key="index"
-                  >
+                <ul class="nav-sub-childmenu submenu-content" v-if="childrenItem.children"
+                  :class="{ opensubchild: childrenItem.active }">
+                  <li v-for="(childrenSubItem, index) in childrenItem.children" :key="index">
                     <!-- Link -->
-                    <nuxt-link
-                      :to="childrenSubItem.path"
-                      v-if="childrenSubItem.type == 'link'"
-                      nuxt-link-exact-active
-                    >
+                    <nuxt-link :to="childrenSubItem.path" v-if="childrenSubItem.type == 'link'" nuxt-link-exact-active>
                       {{ childrenSubItem.title }}
-                      <label
-                        :class="
-                          'badge badge-' +
-                          childrenSubItem.badgeType +
-                          ' pull-right'
-                        "
-                        v-if="childrenSubItem.badgeType"
-                        >{{ childrenSubItem.badgeValue }}</label
-                      >
-                      <i
-                        class="fa fa-angle-right pull-right"
-                        v-if="childrenSubItem.children"
-                      ></i>
+                      <label :class="
+                        'badge badge-' +
+                        childrenSubItem.badgeType +
+                        ' pull-right'
+                      " v-if="childrenSubItem.badgeType">{{ childrenSubItem.badgeValue }}</label>
+                      <i class="fa fa-angle-right pull-right" v-if="childrenSubItem.children"></i>
                     </nuxt-link>
                     <!-- External Link -->
-                    <nuxt-link
-                      :to="childrenSubItem.path"
-                      v-if="childrenSubItem.type == 'extLink'"
-                      nuxt-link-exact-active
-                    >
+                    <nuxt-link :to="childrenSubItem.path" v-if="childrenSubItem.type == 'extLink'"
+                      nuxt-link-exact-active>
                       {{ childrenSubItem.title }}
-                      <label
-                        :class="
-                          'badge badge-' +
-                          childrenSubItem.badgeType +
-                          ' pull-right'
-                        "
-                        v-if="childrenSubItem.badgeType"
-                        >{{ childrenSubItem.badgeValue }}</label
-                      >
-                      <i
-                        class="fa fa-angle-right pull-right"
-                        v-if="childrenSubItem.children"
-                      ></i>
+                      <label :class="
+                        'badge badge-' +
+                        childrenSubItem.badgeType +
+                        ' pull-right'
+                      " v-if="childrenSubItem.badgeType">{{ childrenSubItem.badgeValue }}</label>
+                      <i class="fa fa-angle-right pull-right" v-if="childrenSubItem.children"></i>
                     </nuxt-link>
                     <!-- External Tab Link -->
-                    <nuxt-link
-                      :to="childrenSubItem.path"
-                      v-if="childrenSubItem.type == 'extLink'"
-                      nuxt-link-exact-active
-                    >
+                    <nuxt-link :to="childrenSubItem.path" v-if="childrenSubItem.type == 'extLink'"
+                      nuxt-link-exact-active>
                       {{ childrenSubItem.title }}
-                      <label
-                        :class="
-                          'badge badge-' +
-                          childrenSubItem.badgeType +
-                          ' pull-right'
-                        "
-                        v-if="childrenSubItem.badgeType"
-                        >{{ childrenSubItem.badgeValue }}</label
-                      >
-                      <i
-                        class="fa fa-angle-right pull-right"
-                        v-if="childrenSubItem.children"
-                      ></i>
+                      <label :class="
+                        'badge badge-' +
+                        childrenSubItem.badgeType +
+                        ' pull-right'
+                      " v-if="childrenSubItem.badgeType">{{ childrenSubItem.badgeValue }}</label>
+                      <i class="fa fa-angle-right pull-right" v-if="childrenSubItem.children"></i>
                     </nuxt-link>
                   </li>
                 </ul>
@@ -325,21 +179,17 @@
           </li>
         </ul>
       </div>
-      <li
-        class="right-arrow"
-        :class="{
-          'd-none':
-            layout.settings.layout_type == 'rtl'
-              ? hideRightArrowRTL
-              : hideRightArrow,
-        }"
-        @click="
-          layoutobject.split(' ').includes('horizontal-wrapper') &&
+      <li class="right-arrow" :class="{
+        'd-none':
           layout.settings.layout_type == 'rtl'
-            ? scrollToRightRTL()
-            : scrollToRight()
-        "
-      >
+            ? hideRightArrowRTL
+            : hideRightArrow,
+      }" @click="
+  layoutobject.split(' ').includes('horizontal-wrapper') &&
+    layout.settings.layout_type == 'rtl'
+    ? scrollToRightRTL()
+    : scrollToRight()
+">
         <feather type="arrow-right"></feather>
       </li>
     </nav>
