@@ -66,6 +66,13 @@
               "type": "link"
             }
           ]
+        },
+        {
+          "title": "Lists",
+          "icon": "grid",
+          "path": "/transactions/lists/tracking",
+          "type": "link",
+          "active": false
         }
       ]
     },
