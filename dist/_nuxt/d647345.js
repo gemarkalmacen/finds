@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{706:function(e,t,n){"use strict";n.r(t);var r={},l=n(8),component=Object(l.a)(r,(function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("BreadCrumbs",{attrs:{title:"PPE & Semi"}}),e._v(" "),n("h1",[e._v("This is PPE / Semi Page")])],1)}),[],!1,null,null,null);t.default=component.exports}}]);

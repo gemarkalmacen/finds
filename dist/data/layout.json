@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "layout_type": "ltr",
+    "layout": "Dubai",
+    "sidebar_setting": "default-sidebar"
+  },
+  "color": {
+    "layout_version": "dark-sidebar",
+    "primary_color": "#7366ff",
+    "secondary_color": "#f73164",
+    "mix_layout": "default"
+  }
+}

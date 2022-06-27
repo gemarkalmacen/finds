@@ -1,0 +1,88 @@
+{
+  "data": [
+    {
+      "title": "Dashboard",
+      "icon": "grid",
+      "path": "/dashboard",
+      "type": "link",
+      "active": false
+    },
+    {
+      "title": "Transactions",
+      "icon": "layers",
+      "type": "sub",
+      "active": false,
+      "children": [
+        {
+          "title": "Tracking Documents",
+          "type": "sub",
+          "active": false,
+          "children": [
+            {
+              "path": "/transactions/trackingdocuments/purchaserequest",
+              "title": "Purchase Request",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/trackingdocuments/voucher",
+              "title": "Voucher",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/trackingdocuments/tev/list",
+              "title": "TEV",
+              "type": "link"
+            }
+          ]
+        },
+        {
+          "title": "Remittances",
+          "type": "sub",
+          "active": false,
+          "children": [
+            {
+              "path": "/transactions/remittances/gsis",
+              "title": "GSIS",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/sss",
+              "title": "SSS",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/philhealth",
+              "title": "Philhealth",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/pagibig",
+              "title": "Pag-ibig",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/remittances/sweap",
+              "title": "SWEAP",
+              "type": "link"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Accountability",
+      "icon": "folder",
+      "type": "sub",
+      "badgeType": "light-primary",
+      "badgeValue": "",
+      "active": false,
+      "children": [
+        {
+          "path": "/accountability/ppe_semi",
+          "title": "PPE / Semi",
+          "type": "link"
+        }
+      ]
+    }
+  ]
+}
