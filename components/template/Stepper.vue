@@ -108,7 +108,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: auto;
     position: relative;
     z-index: 0;
     margin-bottom: 24px;
@@ -133,43 +133,44 @@ body{
     }
 }
 
-.stepper-item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: $default;
-    transition: $transiton;
 
-    &-counter{
-        height: 100px;
-        width: 100px;
-        display: grid;
-        place-items: center;
-        background-color: #fff;
-        border-radius: 100%;
-        border: 2px solid $default;
-        position: relative;
+  .stepper-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: $default;
+      transition: $transiton;
 
-        .icon-success{
-            position: absolute;
-            opacity: 0;
-            transform: scale(0);
-            width: 24px;
-            transition: $transiton;
-        }
+      &-counter{
+          height: 100px;
+          width: 100px;
+          display: grid;
+          place-items: center;
+          background-color: #fff;
+          border-radius: 100%;
+          border: 2px solid $default;
+          position: relative;
 
-        .number{
-            font-size: 22px;
-            transition: $transiton;
-        }
-    }
+          .icon-success{
+              position: absolute;
+              opacity: 0;
+              transform: scale(0);
+              width: 24px;
+              transition: $transiton;
+          }
 
-    &-title{
-        position: absolute;
-        font-size: 14px;
-        bottom: -24px;
-    }
-}
+          .number{
+              font-size: 22px;
+              transition: $transiton;
+          }
+      }
+
+      &-title{
+          position: absolute;
+          font-size: 14px;
+          bottom: -24px;
+      }
+  }
 
 .stepper-item.success{
     .stepper-item-counter{
@@ -194,6 +195,31 @@ body{
     }
 }
 
+@media only screen and (max-width: 600px) {
+  .stepper-item{
+        &-counter{
+            height: 40px;
+            width: 40px;
+        }
+        &-title{
+            font-size: 8px;
+            bottom: -24px;
+        }
+    }
+
+    .stepper-item.success{
+      .stepper-item-counter{
+      border-color: $green-1;
+      background-color: #c8ebc1;
+      color: #fff;
+      font-weight: 600;
+      .icon-success{
+          opacity: 1;
+          transform: scale(0.7);
+      }
+      }
+    }
+  }
 .stepper-item.current{
     .stepper-item-counter{
         border-color: $green-1;
