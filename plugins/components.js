@@ -7,3 +7,5 @@ const components = { BreadCrumbs, Pxcard };
 Object.entries(components).forEach(([name, component]) => {
   Vue.component(name, component);
 });
+
+

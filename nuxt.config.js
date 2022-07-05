@@ -39,6 +39,7 @@ export default {
     { src: "~/plugins/chartist", mode: "client" },
     { src: "~/plugins/functional-calendar", mode: "client" },
     { src: "~/plugins/components", mode: "client" },
+    { src: "~/plugins/vue-formwizard", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
