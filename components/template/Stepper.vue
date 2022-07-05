@@ -98,7 +98,6 @@ body{
 }
 
 .wrapper-stepper{
-    background-color: #fff;
     padding: 60px;
     border-radius: 32px;
     box-shadow: rgba($color: #000000, $alpha: 0.09);
