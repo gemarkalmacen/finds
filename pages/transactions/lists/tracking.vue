@@ -34,7 +34,7 @@
 
                   <template #cell(details)>
                   <b>
-                    <nuxt-link to="#index" class="btn btn-primary btn-sm px-2">
+                    <nuxt-link to="/transactions/lists/details" class="btn btn-primary btn-sm px-2">
                       <i class="fa fa-file text-light"></i>
                     </nuxt-link>
                   </b>
