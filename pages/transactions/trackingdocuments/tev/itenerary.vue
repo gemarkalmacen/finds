@@ -16,25 +16,42 @@
               <b-row>
                 <b-col xl="6">
                   <b-input-group class="datatable-btn">
-                    <b-form-input v-model="filter" placeholder="Input TO Number"></b-form-input>
+                    <b-form-input v-model="filter" placeholder="Input TO Number">fasfasfasf</b-form-input>
                     <b-input-group-append >
-                      <b-button :disabled="!filter" @click="filter = ''" >Add</b-button>
+                      <b-button :disabled="!filter" @click="addTable()" >Add</b-button>
+                    </b-input-group-append>
+                  </b-input-group>
+                </b-col>
+
+
+              </b-row><br><br>
+              <div v-for="(er, idx1) in entryRow" :key="idx1">
+
+              <b-row>
+                <b-col xl="6">
+                  <b-input-group class="datatable-btn">
+                    
+                    <b-input-group-append >
+                      <p class="h6 ml-auto m-wc mt-3" >TO#: <u >{{er.to_number}}</u></p>
+                      
+                      <!-- <b-button :disabled="!filter" @click="addTable()" >Add</b-button> -->
                     </b-input-group-append>
                   </b-input-group>
                 </b-col>
 
                 <b-col xl="6">
-                  <b-form-group label-cols="2" label="Per page" class="mb-0 datatable-select">
-                    <b-form-select v-model="perPage" :options="pageOptions"></b-form-select>
+                  <b-form-group label-cols="2" class="mb-0 datatable-select ">
+                    <b-button :disabled="!filter" class="btn btn-danger btn-sm p-1 px-2 text-right" v-if="er.remove_btn" @click="deleteTable(idx1)" variant="danger" >REMOVE</b-button>
                   </b-form-group>
                 </b-col>
-
-              <b-col xl="6">
-                 <p class="h6 ml-auto m-wc">TO#: <u>TO-2022-05-2019</u></p>
-              </b-col>
-              
               </b-row>
-              <table class="table table-striped table-bordered">
+
+              <!-- <p class="h6 ml-auto m-wc" >TO#: <u >{{er.to_number}} 
+              <div class="col-md-13 text-right"><p v-if="er.remove_btn" @click="deleteTable(idx1)" class="btn btn-danger btn-sm p-1 px-2 text-right">REMOVE</p></div>
+              </u>
+              </p> -->
+          
+              <table class="table table-striped table-bordered"  >
                 <thead class="text-center thead-dark">
                   <tr>
                     <th rowspan="2" class="p-1 pb-1p">Date</th>
@@ -57,7 +74,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(er, idx) in entryRow" :key="idx">
+                  <tr v-for="(r, idx2) in er.data" :key="idx2">
                     <td class="p-0">
                       <input
                         type="date"
@@ -69,26 +86,26 @@
                       <input
                         type="text"
                         class="form-control border-0"
-                        v-model="er.destination"
+                        v-model="r.destination"
                       />
                     </td>
                     <td class="p-0">
                       <input
                         type="time"
                         class="form-control border-0"
-                        v-model="er.departure"
+                        v-model="r.departure"
                       />
                     </td>
                     <td class="p-0">
                       <input
                         type="time"
                         class="form-control border-0"
-                        v-model="er.arrival"
+                        v-model="r.arrival"
                       />
                     </td>
                     <td class="p-0">
                       <multiselect
-                        v-model="er.mot"
+                        v-model="r.mot"
                         :options="options"
                         class="p-0 m-0 border-0"
                         label="name"
@@ -102,39 +119,39 @@
                       <input
                         type="number"
                         class="form-control border-0 text-right"
-                        v-model="er.transportation"
+                        v-model="r.transportation"
                       />
                     </td>
                     <td class="p-0">
                       <input
                         type="number"
                         class="form-control border-0 text-right"
-                        v-model="er.per_diem"
+                        v-model="r.per_diem"
                       />
                     </td>
                     <td class="p-0">
                       <input
                         type="number"
                         class="form-control border-0 text-right"
-                        v-model="er.others"
+                        v-model="r.others"
                       />
                     </td>
                     <td class="p-0">
                       <h6 class="p-2 text-right">
-                        {{ calcTA(er.transportation, er.per_diem, er.others) }}
+                        {{ calcTA(r.transportation, r.per_diem, r.others) }}
                       </h6>
                     </td>
                     <td class="p-1 d-flex">
                       <button
-                        @click="addRow(idx)"
+                        @click="addRow(idx1, idx2)"
                         class="btn btn-primary btn-sm p-1 px-2 d-block"
-                        :class="idx == 0 ? 'm-auto' : 'mr-2'"
+                        :class="idx2 == 0 ? 'm-auto' : 'mr-2'"
                       >
                         <i class="fa fa-plus"></i>
                       </button>
                       <button
-                        v-if="idx != 0"
-                        @click="deleteRow(idx)"
+                        v-if="idx2 != 0"
+                        @click="deleteRow(idx1, idx2)"
                         class="btn btn-secondary btn-sm p-1 px-2 d-block"
                       >
                         <i class="fa fa-minus"></i>
@@ -148,133 +165,11 @@
                     <td colspan="1" class="text-right">{{ calcGT }}</td>
                   </tr>
                 </tfoot>
-              </table>
-              <b-row>
-          
-             
-              <b-col xl="12">
-                <br>
-                <br>
-                <br>
-                 <p class="h6 ml-auto m-wc">TO#: <u>TO-2022-05-2019</u></p>
-              </b-col>
+              </table><br><br>
+              </div>
 
-              </b-row>
-              <table class="table table-striped table-bordered" id="">
-                <thead class="text-center thead-dark">
-                  <tr>
-                    <th rowspan="2" class="p-1 pb-1p">Date</th>
-                    <th rowspan="2" class="p-1 pb-1p">
-                      Place to be visited (Destination)
-                    </th>
-                    <th colspan="2" class="p-1">Time</th>
-                    <th rowspan="2" class="p-1 pb-1p">
-                      Means of Transportation
-                    </th>
-                    <th rowspan="2" class="p-1 pb-1p">Transportation</th>
-                    <th rowspan="2" class="p-1 pb-1p">Per Diem</th>
-                    <th rowspan="2" class="p-1 pb-1p">Others</th>
-                    <th rowspan="2" class="p-1 pb-1p">Total Amount</th>
-                    <th rowspan="2" class="p-1 pb-1p">Action</th>
-                  </tr>
-                  <tr>
-                    <th class="p-1">Departure</th>
-                    <th class="p-1">Arrival</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(er, idx) in entryRow2nd" :key="idx">
-                    <td class="p-0">
-                      <input
-                        type="date"
-                        name=""
-                        class="form-control digits border-0 bg-white text-dark"
-                      />
-                    </td>
-                    <td class="p-0">
-                      <input
-                        type="text"
-                        class="form-control border-0"
-                        v-model="er.destination"
-                      />
-                    </td>
-                    <td class="p-0">
-                      <input
-                        type="time"
-                        class="form-control border-0"
-                        v-model="er.departure"
-                      />
-                    </td>
-                    <td class="p-0">
-                      <input
-                        type="time"
-                        class="form-control border-0"
-                        v-model="er.arrival"
-                      />
-                    </td>
-                    <td class="p-0">
-                      <multiselect
-                        v-model="er.mot"
-                        :options="options"
-                        class="p-0 m-0 border-0"
-                        label="name"
-                        :searchable="false"
-                        :close-on-select="false"
-                        :show-labels="false"
-                        placeholder=""
-                      ></multiselect>
-                    </td>
-                    <td class="p-0">
-                      <input
-                        type="number"
-                        class="form-control border-0 text-right"
-                        v-model="er.transportation"
-                      />
-                    </td>
-                    <td class="p-0">
-                      <input
-                        type="number"
-                        class="form-control border-0 text-right"
-                        v-model="er.per_diem"
-                      />
-                    </td>
-                    <td class="p-0">
-                      <input
-                        type="number"
-                        class="form-control border-0 text-right"
-                        v-model="er.others"
-                      />
-                    </td>
-                    <td class="p-0">
-                      <h6 class="p-2 text-right">
-                        {{ _calcTA(er.transportation, er.per_diem, er.others) }}
-                      </h6>
-                    </td>
-                    <td class="p-1 d-flex">
-                      <button
-                        @click="_addRow(idx)"
-                        class="btn btn-primary btn-sm p-1 px-2 d-block"
-                        :class="idx == 0 ? 'm-auto' : 'mr-2'"
-                      >
-                        <i class="fa fa-plus"></i>
-                      </button>
-                      <button
-                        v-if="idx != 0"
-                        @click="_deleteRow(idx)"
-                        class="btn btn-secondary btn-sm p-1 px-2 d-block"
-                      >
-                        <i class="fa fa-minus"></i>
-                      </button>
-                    </td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <td colspan="8">GRAND TOTAL</td>
-                    <td colspan="1" class="text-right">{{ _calcGT }}</td>
-                  </tr>
-                </tfoot>
-              </table>
+              
+
             </div>
             <div class="card-footer py-3 px-5">
               <div class="ml-auto d-flex w-mc">
@@ -310,6 +205,7 @@ export default {
   },
   data() {
     return {
+
       options: [
         { code: 1, name: "RP Vice-versa" },
         { code: 2, name: "RP one-way" },
@@ -320,28 +216,21 @@ export default {
       filter: null,
       entryRow: [
         {
-          date: null,
-          destination: null,
-          departure: null,
-          arrival: null,
-          mot: null,
-          transportation: null,
-          per_diem: null,
-          others: null,
+          remove_btn:false,
+          to_number: 'TO-31231',
+          data: [{
+            date: null,
+            destination: null,
+            departure: null,
+            arrival: null,
+            mot: null,
+            transportation: null,
+            per_diem: null,
+            others: null,
+          }]
         },
       ],
-      entryRow2nd: [
-        {
-          date: null,
-          destination: null,
-          departure: null,
-          arrival: null,
-          mot: null,
-          transportation: null,
-          per_diem: null,
-          others: null,
-        },
-      ],
+
       format: "MM/dd/yyyy",
     };
   },
@@ -349,20 +238,6 @@ export default {
     calcGT() {
       let result = 0;
       this.entryRow.forEach((i) => {
-        result +=
-          (i.transportation == null || i.transportation == ""
-            ? 0
-            : parseFloat(i.transportation)) +
-          (i.per_diem == null || i.per_diem == ""
-            ? 0
-            : parseFloat(i.per_diem)) +
-          (i.others == null || i.others == "" ? 0 : parseFloat(i.others));
-      });
-      return this.decimalFormat(result);
-    },
-    _calcGT() {
-      let result = 0;
-      this.entryRow2nd.forEach((i) => {
         result +=
           (i.transportation == null || i.transportation == ""
             ? 0
@@ -386,17 +261,21 @@ export default {
         )
       );
     },
-    _calcTA(...num) {
-      return this.decimalFormat(
-        num.reduce(
-          (b, a) =>
-            parseFloat(b == null || b == "" ? 0 : b) +
-            parseFloat(a == null || a == "" ? 0 : a),
-          0
-        )
-      );
-    },
-    addRow(idx) {
+    addRow(idx1, idx2) {
+      this.$toast.success("Row has been added", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: false,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
       let arr_data = {
         date: null,
         destination: null,
@@ -407,30 +286,75 @@ export default {
         per_diem: null,
         others: null,
       };
-      this.entryRow.splice(idx + 1, 0, arr_data);
+      this.entryRow[idx1].data.splice(idx2 + 1, 0, arr_data);
     },
-    _addRow(idx) {
+    addTable() {
+      this.$toast.success("IOT has been added", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: false,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
       let arr_data = {
-        date: null,
-        destination: null,
-        departure: null,
-        arrival: null,
-        mot: null,
-        transportation: null,
-        per_diem: null,
-        others: null,
+        to_number: this.filter,
+        remove_btn:true,
+        data: [{
+          date: null,
+          destination: null,
+          departure: null,
+          arrival: null,
+          mot: null,
+          transportation: null,
+          per_diem: null,
+          others: null
+        }]
       };
-      this.entryRow2nd.splice(idx + 1, 0, arr_data);
+    
+      this.entryRow.splice(1 + 1, 0, arr_data);
     },
-    deleteRow(idx) {
-      if (idx != 0) {
-        this.entryRow.splice(idx, 1);
+    deleteRow(idx1, idx2) {
+      this.$toast.error("Row has been deleted", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: false,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+      if (idx2 != 0) {
+        this.entryRow[idx1].data.splice(idx2, 1);
       }
     },
-    _deleteRow(idx) {
-      if (idx != 0) {
-        this.entryRow2nd.splice(idx, 1);
-      }
+    deleteTable(idx1){
+      this.$toast.error("IOT has been deleted", {
+        position: "top-right",
+        timeout: 3000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: true,
+        draggable: true,
+        draggablePercent: 0.6,
+        showCloseButtonOnHover: false,
+        hideProgressBar: false,
+        closeButton: "button",
+        icon: true,
+        rtl: false
+      });
+      this.entryRow.splice(idx1, 1)
     },
     decimalFormat(num) {
       let number = parseFloat(num);

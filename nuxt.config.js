@@ -40,6 +40,7 @@ export default {
     { src: "~/plugins/functional-calendar", mode: "client" },
     { src: "~/plugins/components", mode: "client" },
     { src: "~/plugins/vue-formwizard", mode: "client" },
+    { src: "~/plugins/vue-toastification", mode: "client" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
