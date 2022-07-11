@@ -23,10 +23,7 @@
   </div>
 </template>
 <script>
-import Stepper from "~/components/template/Stepper.vue";
-import Timeline from "~/components/template/Timeline.vue";
   export default {
-    components: { Stepper, Timeline },
     data(){
       return{
         timeline: [

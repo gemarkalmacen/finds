@@ -195,14 +195,12 @@
 </template>
 
 <script>
-import Multiselect from "vue-multiselect";
-import Datepicker from "vuejs-datepicker";
-
-export default {
-  components: {
-    Multiselect,
-    Datepicker,
-  },
+// // import Multiselect from "vue-multiselect";
+// export default {
+//   components: {
+//     Multiselect,
+//   },     
+export default {                  
   data() {
     return {
 

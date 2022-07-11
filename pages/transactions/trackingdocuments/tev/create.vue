@@ -44,11 +44,12 @@
                 <tbody>
                   <tr v-for="(er, idx) in entryRow" :key="idx">
                     <td class="p-0">
-                      <datepicker
-                        input-class="datepicker-here form-control digits border-0 bg-white text-dark"
-                        :format="format"
+                      <input
+                        type="date"
+                        name=""
+                        class="form-control digits border-0 bg-white text-dark"
                         v-model="er.date"
-                      ></datepicker>
+                      />
                     </td>
                     <td class="p-0">
                       <input
@@ -159,14 +160,7 @@
 </template>
 
 <script>
-import Multiselect from "vue-multiselect";
-import Datepicker from "vuejs-datepicker";
-
 export default {
-  components: {
-    Multiselect,
-    Datepicker,
-  },
   data() {
     return {
       options: [
