@@ -32,6 +32,11 @@
               "path": "/transactions/trackingdocuments/tev/list",
               "title": "TEV",
               "type": "link"
+            },
+            {
+              "path": "/transactions/trackingdocuments/tev/itenerary",
+              "title": "Itenerary Travel",
+              "type": "link"
             }
           ]
         },
