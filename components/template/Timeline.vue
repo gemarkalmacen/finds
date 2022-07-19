@@ -1,12 +1,7 @@
 
 <template id="timeline-template">
   <ul class="timeline">
-    <li
-      v-for="(item, index) in items"
-      is="TimelineItem"
-      :key="index"
-      :item="item"
-    ></li>
+    <TimelineItem v-for="(item, index) in items" :key="index" :item="item"/>
   </ul>
 </template>
 <style lang="scss">
@@ -183,9 +178,7 @@
 }
 </style>
 <script>
-import TimelineItem from "./TimelineItem.vue";
 export default {
-  components: { TimelineItem },
   props: ["items"],
 };
 </script>
