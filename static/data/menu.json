@@ -68,6 +68,23 @@
           ]
         },
         {
+          "title": "Payroll",
+          "type": "sub",
+          "active": false,
+          "children": [
+            {
+              "path": "/transactions/trackingdocuments/accounting_tev/create",
+              "title": "Create",
+              "type": "link"
+            },
+            {
+              "path": "/transactions/trackingdocuments/accounting_tev/list",
+              "title": "Lists",
+              "type": "link"
+            }
+          ]
+        },
+        {
           "title": "Lists",
           "icon": "grid",
           "path": "/transactions/lists/tracking",
