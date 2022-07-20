@@ -9,11 +9,11 @@
                         <h5>Create Payroll</h5>
                     </div>
                     <div class="card-body">
-                      <b-form class="needs-validation" @submit="onCustomStyleSubmit">
-                            <div class="form-row">
-                                <div class="col-md-4 mb-3">
+                      <b-form class="needs-validation" @submit="onCustomStyleSubmit" >
+                            <div class="form-row" >
+                                <div class="col-md-4 mb-3"  >
                                     <label for="c_form_cluster">Cluster</label>
-                                    <b-form-input type="text" id="c_form_cluster" v-model="c_form.cluster" :state="c_form_result.cluster" placeholder="Cluster"></b-form-input>
+                                    <b-form-input type="text" id="c_form_cluster" v-model="c_form.cluster" :state="c_form_result.cluster"  placeholder="Cluster"></b-form-input>
                                     <b-form-valid-feedback :state="c_form_result.cluster">Lock Good</b-form-valid-feedback>
                                 </div>
                                 <div class="col-md-4 mb-3">
@@ -50,7 +50,9 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_fund">Province</label>
                                     <div class="form-group">
-                                      <b-form-select v-model="supported_form.selected_province" :options="province_select_options" :state="c_form_result.province"></b-form-select>
+                                      <b-form-select v-model="c_form.province" :options="province_select_options" :state="c_form_result.province">
+                                          <option value="" selected="selected" hidden="hidden">Select province</option>
+                                      </b-form-select>
                                       <b-form-invalid-feedback :state="c_form_result.province">Don't leave this blank</b-form-invalid-feedback>
                                     </div>
 
@@ -58,7 +60,9 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_fund">Municipality</label>
                                     <div class="form-group">
-                                      <b-form-select v-model="supported_form.selected_municipality" :options="municipality_select_options" :state="c_form_result.municipality" placeholder="Municipality"></b-form-select>
+                                      <b-form-select v-model="c_form.municipality" :options="municipality_select_options" :state="c_form_result.municipality" placeholder="Municipality">
+                                       <option value="" selected="selected" hidden="hidden">Select Municipality</option>
+                                      </b-form-select>
                                       <b-form-invalid-feedback :state="c_form_result.municipality">Don't leave this blank</b-form-invalid-feedback>
                                     </div>
 
@@ -66,7 +70,9 @@
                                  <div class="col-md-4 mb-3">
                                     <label for="c_form_fund">Barangay</label>
                                     <div class="form-group">
-                                      <b-form-select v-model="supported_form.selected_barangay" :options="barangay_select_options" :state="c_form_result.barangay" placeholder="Barangay"></b-form-select>
+                                      <b-form-select v-model="c_form.barangay" :options="barangay_select_options" :state="c_form_result.barangay" placeholder="Barangay">
+                                        <option value="" selected="selected" hidden="hidden">Select Barangay</option>
+                                      </b-form-select>
                                       <b-form-invalid-feedback :state="c_form_result.barangay">Don't leave this blank</b-form-invalid-feedback>
                                     </div>
                                 </div>
@@ -196,10 +202,6 @@
             </div>
          </div>
         </div>
-
-
-
-
   </div>
 </template>
 
@@ -219,7 +221,6 @@
           file:null
         },
         province_select_options: [
-          { value: null, text:'Select Province' },
           { value: '1', text:'Agusan Del Norte' },
           { value: '2', text:'Agusan Del Sur' },
           { value: '3', text:'Surigao Del Norte' },
@@ -242,7 +243,8 @@
           { value: '4', text:'Villakananga' },
           { value: '5', text:'Poblacion' }
         ],
-        c_form:{
+        c_form: 
+        {
           cluster:'',
           lbp:'',
           amt_certified:'',
@@ -254,7 +256,8 @@
           barangay:'',
           qrcode:''
         },
-        c_form_result:{
+  
+      c_form_result:{
           cluster:null,
           lbp:null,
           amt_certified:null,
@@ -292,7 +295,12 @@
 
       supported_select_state(){
         if(this.supported_form.selected != null) {
+          console.log("test11");
           return true;
+        }
+        else {
+          console.log("test2");
+          return false;
         }
       },
       supported_file_state(){
@@ -309,71 +317,81 @@
         console.log("test");
       },
     onCustomStyleSubmit(evt){  
-        this.show=true;
+
         evt.preventDefault();
-        this.onSelectedItems();
+        // this.onSelectedItems();
+        let cluster = this.c_form.cluster;
+        let lbp = this.c_form.lbp;
+        let amt_certified = this.c_form.amt_certified;
+        let fund = this.c_form.fund;
+        let state = this.c_form.state;
+        let employee = this.c_form.employee;
+        let province = this.c_form.province;
+        let municipality = this.c_form.municipality;
+        let barangay = this.c_form.barangay;
 
-        if(this.c_form.cluster !== '') {
-
+        if(cluster !== '') {
           this.c_form_result.cluster = true;
         } else {
+
           this.c_form_result.cluster = false;
         }
-
-        if(this.c_form.lbp !== '') {
+        if(lbp !== '') {
           this.c_form_result.lbp = true;
         } else {
           this.c_form_result.lbp = false;
         }
 
-        if(this.c_form.amt_certified !== '') {
+        if(amt_certified!== '') {
           this.c_form_result.amt_certified = true;
         } else {
           this.c_form_result.amt_certified = false;
         }
 
-        if(this.c_form.fund !== '') {
+        if(fund!== '') {
           this.c_form_result.fund = true;
         } else {
           this.c_form_result.fund = false;
         }
 
-        if(this.c_form.state !== '') {
+        if(state !== '') {
           this.c_form_result.state = true;
         } else {
           this.c_form_result.state = false;
         }
 
-        if(this.c_form.province !== '') {
+        if(province !== '') {
           this.c_form_result.province = true;
         } else {
           this.c_form_result.province = false;
         }
 
-        if(this.c_form.municipality !== '') {
+        if(municipality !== '') {
           this.c_form_result.municipality = true;
         } else {
           this.c_form_result.municipality = false;
         }
 
-        if(this.c_form.employee !== '') {
+        if(employee !== '') {
           this.c_form_result.employee = true;
         } else {
           this.c_form_result.employee = false;
         }
 
-        if(this.c_form.barangay !== '') {
+        if(barangay !== '') {
           this.c_form_result.barangay = true;
-        } else {
+        } else if(this.c_form.barangay == '') {
           this.c_form_result.barangay = false;
         }
-
+        if ((lbp && cluster && amt_certified && fund && state && employee && province && municipality && barangay) !==''){
+          this.show=true;
+        }
       },
 
       onSelectedItems(){
         if(this.supported_form.selected != null) {
           console.log("trueee");
-          return(this.supported_form.selected =true);
+          return(this.supported_form.selected =false);
         }
         else{
           return(this.supported_form.selected =false);
