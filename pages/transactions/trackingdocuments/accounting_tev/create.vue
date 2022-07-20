@@ -14,36 +14,36 @@
                                 <div class="col-md-4 mb-3"  >
                                     <label for="c_form_cluster">Cluster</label>
                                     <b-form-input type="text" id="c_form_cluster" v-model="c_form.cluster" :state="c_form_result.cluster"  placeholder="Cluster"></b-form-input>
-                                    <b-form-valid-feedback :state="c_form_result.cluster">Lock Good</b-form-valid-feedback>
+                                    <b-form-invalid-feedback :state="c_form_result.cluster">Don't leave this blank</b-form-invalid-feedback>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_lbp">LBP</label>
                                     <b-form-input type="text" id="c_form_lbp" v-model="c_form.lbp" :state="c_form_result.lbp" placeholder="LBP"></b-form-input>
-                                    <b-form-valid-feedback :state="c_form_result.lbp">Lock Good</b-form-valid-feedback>
+                                    <b-form-invalid-feedback :state="c_form_result.lbp">Don't leave this blank</b-form-invalid-feedback>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_amt_certified">Amount Certified</label>
                                     <b-input-group prepend="0.00">
                                         <b-form-input type="number" id="c_form_amt_certified" v-model="c_form.amt_certified" :state="c_form_result.amt_certified" placeholder="amount"></b-form-input>
                                     </b-input-group>
-                                    <b-form-invalid-feedback :state="c_form_result.amt_certified">Please choose a unique and valid amt_certified.</b-form-invalid-feedback>
+                                    <b-form-invalid-feedback :state="c_form_result.amt_certified">Don't leave this blank</b-form-invalid-feedback>
                                 </div>
                             </div>
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_fund">Fund 101</label>
                                     <b-form-input type="text" id="c_form_fund" v-model="c_form.fund" :state="c_form_result.fund" placeholder="Fund"></b-form-input>
-                                    <b-form-invalid-feedback :state="c_form_result.fund">Please provide a valid fund.</b-form-invalid-feedback>
+                                    <b-form-invalid-feedback :state="c_form_result.fund">Don't leave this blank</b-form-invalid-feedback>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_state">Status</label>
-                                    <b-form-input type="text" id="c_form_state" v-model="c_form.state" :state="c_form_result.state" placeholder="TE"></b-form-input>
-                                    <b-form-invalid-feedback :state="c_form_result.state">Please provide a valid state.</b-form-invalid-feedback>
+                                    <b-form-input type="text" id="c_form_state" v-model="c_form.status" :state="c_form_result.status" placeholder="TE"></b-form-input>
+                                    <b-form-invalid-feedback :state="c_form_result.state">Don't leave this blank</b-form-invalid-feedback>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_employeecode">Employee</label>
                                     <b-form-input type="text" id="c_form_employeecode" v-model="c_form.employee" :state="c_form_result.employee" placeholder="Employee"></b-form-input>
-                                    <b-form-invalid-feedback :state="c_form_result.employee">Please provide a valid employee.</b-form-invalid-feedback>
+                                    <b-form-invalid-feedback :state="c_form_result.employee">Don't leave this blank</b-form-invalid-feedback>
                                 </div>
                             </div>
                                 <div class="form-row">
@@ -93,8 +93,8 @@
                             <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <label for="c_form_cluster">Scan QR code</label>
-                                    <b-form-input type="text" id="c_form_cluster" v-model="c_form.qrcode" :state="c_form_result.qrcode" placeholder="QR Code"></b-form-input>
-                                    <b-form-valid-feedback :state="c_form_result.qrcode">Lock Good</b-form-valid-feedback>
+                                    <b-form-input type="text" id="c_form_cluster" v-model="qrcode"  placeholder="QR Code"></b-form-input>
+                                    <!-- <b-form-valid-feedback :state="c_form_result.qrcode">Lock Good</b-form-valid-feedback> -->
                                 </div>
                                 <div class="col-md-4 mb-3">
                                   <b-button type="button" variant="info" style="margin-top: 30px;" @click="addClaims">SCAN QR</b-button>
@@ -212,6 +212,7 @@
       return{
         email: '',
         show:false,
+        qrcode:'',
         supported_form:{
           checkbox:false,
           radio:null,
@@ -249,12 +250,11 @@
           lbp:'',
           amt_certified:'',
           fund:'',
-          state:'',
+          status:'',
           employee:'',
           province:'',
           municipality:'',
           barangay:'',
-          qrcode:''
         },
   
       c_form_result:{
@@ -262,12 +262,11 @@
           lbp:null,
           amt_certified:null,
           fund:null,
-          state:null,
+          status:null,
           employee:null,
           province:null,
           municipality:null,
           barangay:null,
-          qrcode:null
         },
       tablefields: [
         { key: "id", label: "ID", sortable: true },
@@ -316,78 +315,35 @@
     scanQrcode(){
         console.log("test");
       },
-    onCustomStyleSubmit(evt){  
+      onCustomStyleSubmit(evt) {
+      evt.preventDefault()
 
-        evt.preventDefault();
-        // this.onSelectedItems();
-        let cluster = this.c_form.cluster;
-        let lbp = this.c_form.lbp;
-        let amt_certified = this.c_form.amt_certified;
-        let fund = this.c_form.fund;
-        let state = this.c_form.state;
-        let employee = this.c_form.employee;
-        let province = this.c_form.province;
-        let municipality = this.c_form.municipality;
-        let barangay = this.c_form.barangay;
+      let cluster = this.c_form.cluster;
+      let lbp = this.c_form.lbp;
+      let amt_certified = this.c_form.amt_certified;
+      let fund = this.c_form.fund;
+      let state = this.c_form.status;
+      let employee = this.c_form.employee;
+      let province = this.c_form.province;
+      let municipality = this.c_form.municipality;
+      let barangay = this.c_form.barangay;
 
-        if(cluster !== '') {
-          this.c_form_result.cluster = true;
-        } else {
-
-          this.c_form_result.cluster = false;
-        }
-        if(lbp !== '') {
-          this.c_form_result.lbp = true;
-        } else {
-          this.c_form_result.lbp = false;
-        }
-
-        if(amt_certified!== '') {
-          this.c_form_result.amt_certified = true;
-        } else {
-          this.c_form_result.amt_certified = false;
-        }
-
-        if(fund!== '') {
-          this.c_form_result.fund = true;
-        } else {
-          this.c_form_result.fund = false;
-        }
-
-        if(state !== '') {
-          this.c_form_result.state = true;
-        } else {
-          this.c_form_result.state = false;
-        }
-
-        if(province !== '') {
-          this.c_form_result.province = true;
-        } else {
-          this.c_form_result.province = false;
-        }
-
-        if(municipality !== '') {
-          this.c_form_result.municipality = true;
-        } else {
-          this.c_form_result.municipality = false;
-        }
-
-        if(employee !== '') {
-          this.c_form_result.employee = true;
-        } else {
-          this.c_form_result.employee = false;
-        }
-
-        if(barangay !== '') {
-          this.c_form_result.barangay = true;
-        } else if(this.c_form.barangay == '') {
-          this.c_form_result.barangay = false;
-        }
-        if ((lbp && cluster && amt_certified && fund && state && employee && province && municipality && barangay) !==''){
+      for (let key in this.c_form) {
+          if (
+            this.c_form_result.hasOwnProperty(key) &&
+            this.c_form.hasOwnProperty(key) &&
+            this.c_form[key] !== ''
+          ) {
+            this.c_form_result[key] = true
+          } else {
+            this.c_form_result[key] = false
+            console.log(this.c_form_result[key]);
+          }
+      }
+      if ((lbp && cluster && amt_certified && fund && state && employee && province && municipality && barangay) !==''){
           this.show=true;
-        }
-      },
-
+      }
+},
       onSelectedItems(){
         if(this.supported_form.selected != null) {
           console.log("trueee");
