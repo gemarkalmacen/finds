@@ -1,11 +1,11 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xl-7 b-center bg-size" :style="{ backgroundImage: 'url('+ require('assets/images/login/2.jpg') +')' }"
+      <div class="col-xl-7 b-center bg-size" :style="{ backgroundImage: 'url('+ require('assets/images/login/financial.png') +')' }"
           style="background-size: cover; background-position: center center; display: block;">
         <img
           class="bg-img-cover bg-center"
-          src="~assets/images/login/2.jpg"
+          src="~assets/images/login/financial.png"
           alt="looginpage"
           style="display: none;"
         />
@@ -17,12 +17,14 @@
               <a class="logo text-left">
                 <img
                   class="img-fluid for-light"
-                  src="~assets/images/logo/login.png"
+                  style="width: 384px;"
+                  src="~assets/images/logo/finds.png"
                   alt="looginpage"
                 />
                 <img
                   class="img-fluid for-dark"
-                  src="~assets/images/logo/logo_dark.png"
+                  style="width: 384px;"
+                  src="~assets/images/logo/finds_dark.png"
                   alt="looginpage"
                 />
               </a>
@@ -62,33 +64,15 @@
                     Sign in
                   </button>
                 </div>
-                <h6 class="text-muted mt-4 or">Or Sign in with</h6>
+                <h6 class="text-muted mt-4 or">Or Login in with</h6>
                 <div class="social mt-4">
                   <div class="btn-showcase">
-                    <a class="btn btn-light">
-                      <i class="fa fa-google txt-linkedin"></i>
-                      Google
+                    <a class="btn btn-light w-100">
+                      <img src="~assets/images/login/ISSO.png" style="width: 25px;">
+                      ISSO
                     </a>
-                    <a class="btn btn-light">
-                      <feather type="twitter" class="txt-twitter"></feather
-                      >twitter</a
-                    >
-                    <a class="btn btn-light">
-                      <feather type="facebook" class="txt-fb"></feather
-                      >facebook</a
-                    >
                   </div>
                 </div>
-                <p class="mt-4 mb-0">
-                  Don't have account?<router-link
-                    class="ml-2"
-                    tag="a"
-                    to="/auth/register"
-                    custom v-slot="{}"
-                  >
-                    Create Account
-                  </router-link>
-                </p>
               </form>
             </div>
           </div>
