@@ -377,7 +377,7 @@
               >
             </li>
             <li>
-              <a><feather type="log-in"></feather><span>Log out</span></a
+              <a @click="logout"><feather type="log-in"></feather><span>Log out</span></a
               >
             </li>
           </ul>
@@ -522,6 +522,15 @@ export default {
       this.mixLayout = val;
       this.$store.dispatch("layout/setLayout", val);
     },
+    logout() {
+      this.$auth.logout('local')
+      .then(res => {
+        this.$nuxt.$options.router.push('/login');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    }
   },
   watch: {
     "$i18n.locale"(to, from) {

@@ -85,17 +85,19 @@ export default {
       // }
 
       local: {
+        provider: 'laravel/sanctum',
+        url: process.env.API_URL,
         endpoints: {
           login: {
-            url: process.env.API_URL + "api/v1/staff/auth/login",
+            url: "/api/v1/staff/auth/login",
             method: "post",
           },
           logout: {
-            url: process.env.API_URL + "api/v1/staff/auth/logout",
-            method: "post",
+            url: "/api/v1/staff/auth/logout",
+            method: "get",
           },
           user: {
-            url: process.env.API_URL + "api/v1/staff/auth/user",
+            url: "/api/v1/staff/auth/user",
             method: "get",
             propertyName: false,
           },
@@ -125,5 +127,6 @@ export default {
   router: {
     linkActiveClass: "active",
     linkExactActiveClass: "active",
+    middleware: ['auth']
   },
 };

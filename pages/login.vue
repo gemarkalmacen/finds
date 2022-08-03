@@ -32,20 +32,22 @@
             <div class="login-main login-form-card">
               <form class="theme-form">
                 <h4>Sign in to account</h4>
-                <p>Enter your email & password to login</p>
+                <p>Enter your username & password to login</p>
                 <div class="form-group">
-                  <label class="col-form-label">Email Address</label>
+                  <label class="col-form-label">Username</label>
                   <input
                     class="form-control"
-                    type="email"
+                    v-model="form.username"
+                    type="text"
                     required=""
-                    placeholder="Test@gmail.com"
+                    placeholder="jdoe"
                   />
                 </div>
                 <div class="form-group">
                   <label class="col-form-label">Password</label>
                   <input
                     class="form-control"
+                    v-model="form.password"
                     type="password"
                     name="login[password]"
                     required=""
@@ -88,19 +90,24 @@ export default {
     return {
       isLoading: false,
       form: {
-        email: '',
+        username: '',
         password: '',
       },
       errors: {
-        email: '',
+        username: '',
         password: '',
         message: '',
       }
     }
   },
   layout: 'empty',
+  mounted() {
+    this.$axios.$get("/sanctum/csrf-cookie");
+  },
   methods: {
-    login(){
+    async login(){
+      this.$nuxt.$loading.start();
+      try {
         this.$auth
           .loginWith('local', {
             data: this.form
@@ -111,6 +118,10 @@ export default {
         .catch(error => {
           console.log(error);
         });
+      } catch (error) {
+        console.log(error);
+      }
+      this.$nuxt.$loading.finish();
     }
   }
 }

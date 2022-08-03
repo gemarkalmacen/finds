@@ -90,3 +90,5 @@ sw.*
 *.swp
 
 _files
+
+package-lock.json
